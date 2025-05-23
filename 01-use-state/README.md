@@ -1,54 +1,43 @@
-# React + TypeScript + Vite
+# (01-use-state) Card follow 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Se ha creado una card que muestra información de un usuario de una red social
 
-Currently, two official plugins are available:
+# Descripción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La aplicación muestra como usar el Hook usestate, para cambiar el estado de una variable.
 
-## Expanding the ESLint configuration
+## Demo
+![Screenshot](/01-use-state/src/assets/images/cardfollow.PNG)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Instalación
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Pasos de instalación:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+   ```bash
+   git clone https://github.com/usuario/MiProyecto.git
+    
+    cd MiProyecto
+    npm install
+    npm run dev
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Tecnologías
+
+- React
+- JavaScript (ES6)
+- Typescript
+- CSS
+- Vite
+
+## Contribuciones
+
+👩‍💻 Sally Candelaria Gonzalez Garcia
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT.
+
+
+
+
+
