@@ -5,3 +5,92 @@ body{
   font-family: 'Montserrat';
   font-size: 16px;
 }
+
+input:focus,
+button:focus
+{
+  outline: none;
+}
+
+.task_main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.task_main h1{
+  font-size: 30px;
+  margin: 0;
+}
+
+.task_content{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task_content .task_list-has-task{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.task_action{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.task_action input{
+  height: 25px;
+  border: 1px solid #ccc;
+  width: 250px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: 'Montserrat';
+}
+
+.task_action input::placeholder{
+  font-size: 14px;
+  color: #ccc;
+}
+
+.task_action button{
+  height: 35px;
+  width: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #D50B8B;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.task_action button:hover{
+  color: #fff;
+  background-color: #DC8BE0;
+}
+
+
+.task_list .task_item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task_list .task_item button{
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.task_list .task_item button:hover{
+  border: 1px solid #D50B8B;
+}
