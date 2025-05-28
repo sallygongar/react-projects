@@ -18,6 +18,18 @@ const ToDoList = () =>{
     setTask('')
   }
 
+  const handleRemoveTask = (index: number) => {
+    //(_, i) → el primer parámetro (_) es el elemento actual (no lo usas, por eso se nombra con _).
+    const newTasks = listTask.filter((_, i) => i !== index);
+    setlistTask(newTasks);
+  }
+
+  const handleDoneTask = (checked: boolean, index: number) =>{
+    //console.log(`checked: ${checked} , index: ${index} `)
+    const newTasks = [...listTask];
+    newTasks[index].done = checked;
+    setlistTask(newTasks);
+  }
   
   return(
     <div className='task_main'>
@@ -32,10 +44,10 @@ const ToDoList = () =>{
             listTask.length > 0 && listTask.map((item, index) => {
               return(
               <div key={index} className='task_item'>
-                <input type="checkbox" id="done" name="done" checked={item.done} />
-                <label>{item.description}</label>
+                <input type="checkbox" id="done" name="done" onChange={(e) => handleDoneTask(e.target.checked, index)} />
+                <label style={{ textDecoration: item.done ? 'line-through' : 'none' }}>{item.description}</label>
                 <div className='task_item-delete'>
-                  <button type='button'><img src={iconDelete} alt='eliminar'/></button>
+                  <button type='button' onClick={() => handleRemoveTask(index)}><img src={iconDelete} alt='eliminar'/></button>
                 </div>
               </div>
               )
