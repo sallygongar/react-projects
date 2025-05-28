@@ -34,7 +34,9 @@ const ToDoList = () =>{
               <div key={index} className='task_item'>
                 <input type="checkbox" id="done" name="done" checked={item.done} />
                 <label>{item.description}</label>
-                <button type='button'><img src={iconDelete} alt='eliminar'/></button>
+                <div className='task_item-delete'>
+                  <button type='button'><img src={iconDelete} alt='eliminar'/></button>
+                </div>
               </div>
               )
             })

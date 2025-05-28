@@ -17,6 +17,7 @@ button:focus
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  margin-top: 1rem;
 }
 
 .task_main h1{
@@ -28,12 +29,14 @@ button:focus
   display: flex;
   flex-direction: column;
   gap: 12px;
+  align-items: center;
 }
 
 .task_content .task_list-has-task{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   padding: 8px;
   border-radius: 12px;
+  width: 500px;
 }
 
 .task_action{
@@ -46,7 +49,7 @@ button:focus
 .task_action input{
   height: 25px;
   border: 1px solid #ccc;
-  width: 250px;
+  width: 300px;
   border-radius: 5px;
   font-size: 14px;
   font-family: 'Montserrat';
@@ -93,4 +96,23 @@ button:focus
 
 .task_list .task_item button:hover{
   border: 1px solid #D50B8B;
+}
+
+.task_list .task_item .task_item-delete{
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .task_content .task_list-has-task{
+    width: 90%;
+  }
+  .task_action input{
+    width: 250px;
+  }
+}
+
+@media (max-width: 375px) {
+  .task_action input{
+    width: 200px;
+  }
 }
