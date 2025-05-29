@@ -1,17 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CustomCheckbox from './CustomCheckbox';
 import '../assets/css/styles.css';
 
 import iconDelete from  '../assets/images/trash.png';
+import type { ITask } from '../types/task'
 
-interface ITask{
-  description: string,
-  done: boolean
-}
+const LOCAL_STORAGE_KEY = 'tasks';
 
 const ToDoList = () =>{
   const [task,setTask] = useState("");
-  const [listTask,setlistTask] = useState<ITask[]>([]);
+  const [listTask,setlistTask] = useState<ITask[]>(() =>{
+    try{
+      const taskData = localStorage.getItem(LOCAL_STORAGE_KEY);
+      return taskData ? JSON.parse(taskData) : []
+    }catch{
+      return []
+    }
+  });
+
+  useEffect(()=>{
+    // Cargar información del local storage
+    const taskData = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if(taskData){
+      setlistTask(JSON.parse(taskData))
+    }
+  },[])
+
+  useEffect(()=>{
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(listTask))
+  },[listTask])
 
   const handleNewTask = () => {
     if(!task.trim()) return;
