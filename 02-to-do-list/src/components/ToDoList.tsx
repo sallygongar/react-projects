@@ -64,6 +64,7 @@ const ToDoList = () =>{
               <div key={index} className='task_item'>
                 <CustomCheckbox
                   onChange={handleDoneTask}
+                  checked={item.done}
                   index = {index}
                 />
                 <label style={{ textDecoration: item.done ? 'line-through' : 'none' }}>{item.description}</label>
