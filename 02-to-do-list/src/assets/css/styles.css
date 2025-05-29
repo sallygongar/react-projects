@@ -78,6 +78,11 @@ button:focus
   background-color: #DC8BE0;
 }
 
+.task_list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
 .task_list .task_item{
   display: flex;
@@ -100,6 +105,10 @@ button:focus
 
 .task_list .task_item .task_item-delete{
   margin-left: auto;
+}
+
+.task_list .task_item .task_item-delete-hidden{
+  display: none;
 }
 
 @media (max-width: 768px) {

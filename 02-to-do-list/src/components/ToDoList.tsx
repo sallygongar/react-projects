@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import CustomCheckbox from './CustomCheckbox';
 import '../assets/css/styles.css';
 
 import iconDelete from  '../assets/images/trash.png';
@@ -44,9 +45,12 @@ const ToDoList = () =>{
             listTask.length > 0 && listTask.map((item, index) => {
               return(
               <div key={index} className='task_item'>
-                <input type="checkbox" id="done" name="done" onChange={(e) => handleDoneTask(e.target.checked, index)} />
+                <CustomCheckbox
+                  onChange={handleDoneTask}
+                  index = {index}
+                />
                 <label style={{ textDecoration: item.done ? 'line-through' : 'none' }}>{item.description}</label>
-                <div className='task_item-delete'>
+                <div className={`task_item-delete ${item.done ? 'task_item-delete-hidden': ''}`}>
                   <button type='button' onClick={() => handleRemoveTask(index)}><img src={iconDelete} alt='eliminar'/></button>
                 </div>
               </div>
