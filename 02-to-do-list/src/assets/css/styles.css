@@ -113,14 +113,17 @@ button:focus
 
 @media (max-width: 768px) {
   .task_content .task_list-has-task{
-    width: 90%;
+    width: 95%;
   }
   .task_action input{
     width: 250px;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 390px) {
+  .task_content .task_list-has-task{
+    width: 100%;
+  }
   .task_action input{
     width: 200px;
   }

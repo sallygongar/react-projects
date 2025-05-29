@@ -54,7 +54,13 @@ const ToDoList = () =>{
       <h1>Lista de Tareas </h1>
       <div className='task_content'>
         <div className='task_action'>
-          <input type="text" placeholder='Escribe aqui...' value={task} onChange={(e) => setTask(e.target.value)} />
+          <input 
+            type="text" 
+            placeholder='Escribe aqui...' 
+            value={task} 
+            onChange={(e) => setTask(e.target.value)} 
+            onKeyDown={ e => { if(e.key === 'Enter') handleNewTask()}}
+            />
           <button type="button" onClick={handleNewTask}>Agregar</button>
         </div>
         <section className={`task_list ${listTask.length > 0 ? 'task_list-has-task' :''}`}>
