@@ -1,6 +1,6 @@
 # 📝 To-Do List
 
-Una aplicación que ayuda a para gestionar tus tareas diarias. Puedes agregar, completar y eliminar tareas. Ideal para organizar tu día.
+Una aplicación que ayuda a gestionar tus tareas diarias. Puedes agregar, completar y eliminar tareas. Ideal para organizar tu día.
 
 ## 🚀 Características
 
@@ -11,6 +11,7 @@ Una aplicación que ayuda a para gestionar tus tareas diarias. Puedes agregar, c
 - 🎨 Interfaz simple e intuitiva
 
 ## 📸 Demo
+
 ![Screenshot](/02-to-do-list/src/assets/images/task_list.gif)
 
 ## 📦 Instalación
