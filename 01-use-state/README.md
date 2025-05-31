@@ -1,15 +1,17 @@
-# (01-use-state) Card follow 
+# 📝 Card de perfil red social
 
-Se ha creado una card que muestra información de un usuario de una red social
+Una aplicación que ayuda a gestionar una card de perfil de alguna red social.
 
-# Descripción
+## 🚀 Características
 
-La aplicación muestra como usar el Hook usestate, para cambiar el estado de una variable.
+- ✅ Gestiona el follow del usuario.
+- ✅ Muestra información relevante del perfil
+- 🎨 Interfaz simple e intuitiva
 
-## Demo
-![Screenshot](/01-use-state/src/assets/images/cardfollow.PNG)
+## 📸 Demo
+![Screenshot](/01-use-state/src/assets/images/card_followw.gif)
 
-## Instalación
+## 📦 Instalación
 
 1. Pasos de instalación:
 
@@ -21,7 +23,7 @@ La aplicación muestra como usar el Hook usestate, para cambiar el estado de una
     npm run dev
 
 
-## Tecnologías
+## 🔧 Tecnologías
 
 - React
 - JavaScript (ES6)
@@ -29,9 +31,9 @@ La aplicación muestra como usar el Hook usestate, para cambiar el estado de una
 - CSS
 - Vite
 
-## Contribuciones
+## 👩 Autor
 
-👩‍💻 Sally Candelaria Gonzalez Garcia
+Sally Candelaria Gonzalez Garcia
 
 ## Licencia
 
