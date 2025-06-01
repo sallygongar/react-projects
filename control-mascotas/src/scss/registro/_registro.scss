@@ -1,0 +1,28 @@
+
+.form_registro{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 15px;
+  margin-top: 30px;
+  padding: 20px;
+  .form_group{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    label{
+      font-size: 14px;
+      position: absolute;
+      top: -8px;
+      left: 15px;
+      background: #fff;
+      z-index: 10;
+      padding: 0 8px;
+    }
+    input, select{
+      height: 40px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      
+    }
+  }
+}

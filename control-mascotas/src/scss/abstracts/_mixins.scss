@@ -1,0 +1,13 @@
+/* 
+
+Con mixins puedes definir bloques de estilos reutilizables:
+    @mixin input-estilo {
+    padding: 0.5rem;
+    border-radius: 4px;
+    }
+
+    input {
+    @include input-estilo;
+    }
+
+*/
