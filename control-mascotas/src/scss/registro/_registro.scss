@@ -67,6 +67,28 @@
           font-weight: 400;
           gap: 2px;
         }
+        .form_avatar{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+    }
+    .form_group_action{
+      grid-column: -3 / -1;
+      justify-self: flex-end;
+      .button_save{
+        width: 300px;
+        background: #111;
+        height: 46px;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
       }
     }
   }
