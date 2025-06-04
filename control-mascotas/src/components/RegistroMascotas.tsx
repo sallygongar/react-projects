@@ -1,7 +1,9 @@
 import { useState, type ChangeEvent } from "react";
 import type { Mascota } from "../types/mascota.interface";
 import avatarMascotas from  '../assets/images/huella.png';
-import Spinner from "./Spinner";
+import Spinner from './Spinner';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RegistroMascotas = () => {
   const [avatar, setAvatar] = useState<string | null>(null);
@@ -38,9 +40,12 @@ const RegistroMascotas = () => {
     setLoading(true)
     if(validateData()) return
    
-    setTimeout(()=>{
-      console.log("La información ha sido guardada exitosamente")
+    setTimeout(() => {
+      /* Simulando en consumir API */
        setLoading(false)
+       reset()
+       toast.success('Mascota guardada con éxito!');
+  
     },4000)
   }
 
@@ -86,11 +91,23 @@ const RegistroMascotas = () => {
     /* Si hay error se cancela el loading */
     if(isError){
       setLoading(false)
+      toast.error("Favor de verificar los campos")
     }
 
     setErrores(nuevosErrores)
     return isError
+  }
 
+  const reset = () => {
+    setMascota({
+      mascota: "",
+      especie: "",
+      raza: "",
+      sexo: "",
+      fechaNacimiento: "",
+      color: "",
+      esterilizado: ""
+    })
   }
 
   return(
@@ -135,6 +152,7 @@ const RegistroMascotas = () => {
           <div className="form_group">
             <label htmlFor="sexo">Sexo</label>
             <select name="sexo" id="sexo" value={mascota.sexo} onChange={handleInputChange}>
+              <option value="" disabled>Selecciona opcion</option>
               <option value="Macho">Macho</option>
               <option value="Hembra">Hembra</option>
             </select>
@@ -152,13 +170,19 @@ const RegistroMascotas = () => {
           </div>
           <div className="form_group">
             <label htmlFor="esterilizado">Esterilizado</label>
-            <input type="text" name="esterilizado" id="esterilizado" value={mascota.esterilizado} onChange={handleInputChange}/>
+            <select name="esterilizado" id="esterilizado" value={mascota.esterilizado} onChange={handleInputChange}>
+              <option value="" disabled>Selecciona opcion</option>
+              <option value="NO">NO</option>
+              <option value="SI">SI</option>
+            </select>
             <span className="message_error">{errores.esterilizado}</span>
           </div>
           <div className="form_group_action">
             <button type="button" className="button_save" onClick={handleSave} disabled={loading}>{loading ? <Spinner/> : 'Guardar'}</button>
           </div>
       </form>
+      {/* Contenedor de notificaciones */}
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   )
 }
