@@ -16,6 +16,7 @@
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
       width: 100%;
+      margin-top: 0;
     }
     .form_group{
       display: flex;
@@ -45,6 +46,9 @@
     }
   .form_group_file{
     grid-column: 1 / -1;
+    @media (max-width: 768px) {
+      justify-self: center;
+    }
     .form_input-avatar{
       display: none;
     }
@@ -82,6 +86,11 @@
     .form_group_action{
       grid-column: -3 / -1;
       justify-self: flex-end;
+      @media (max-width: 768px) {
+        grid-column: auto;
+        justify-self: left;
+        width: 100%;
+      }
       .button_save{
         width: 300px;
         background: #111;
@@ -93,6 +102,9 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
+        @media (max-width: 768px) {
+          width: 100%;
+        }
       }
     }
   }
