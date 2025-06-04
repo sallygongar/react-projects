@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent } from "react";
 import type { Mascota } from "../types/mascota.interface";
 import avatarMascotas from  '../assets/images/huella.png';
-
+import Spinner from "./Spinner";
 
 const RegistroMascotas = () => {
   const [avatar, setAvatar] = useState<string | null>(null);
@@ -41,7 +41,7 @@ const RegistroMascotas = () => {
     setTimeout(()=>{
       console.log("La información ha sido guardada exitosamente")
        setLoading(false)
-    },5000)
+    },4000)
   }
 
   const validateData = () => {
@@ -82,7 +82,7 @@ const RegistroMascotas = () => {
       nuevosErrores.esterilizado = "Ingrese esterilizado de la mascota";
       isError = true;
     }
-    
+
     /* Si hay error se cancela el loading */
     if(isError){
       setLoading(false)
@@ -156,7 +156,7 @@ const RegistroMascotas = () => {
             <span className="message_error">{errores.esterilizado}</span>
           </div>
           <div className="form_group_action">
-            <button type="button" className="button_save" onClick={handleSave}>{loading ? 'Guardando...' : 'Guardar'}</button>
+            <button type="button" className="button_save" onClick={handleSave} disabled={loading}>{loading ? <Spinner/> : 'Guardar'}</button>
           </div>
       </form>
     </div>
