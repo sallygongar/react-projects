@@ -4,6 +4,7 @@ import avatarMascotas from  '../assets/images/huella.png';
 import Spinner from './Spinner';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import MascotaTable from "./MascotaTable";
 
 const RegistroMascotas = () => {
   const [avatar, setAvatar] = useState<string | null>(null);
@@ -17,6 +18,7 @@ const RegistroMascotas = () => {
     color: "",
     esterilizado: ""
   });
+  const [mascotas, setMascotas] = useState<Mascota[]>([]);
 
   const [errores, setErrores] = useState<Partial<Record<keyof typeof mascota, string>>>({});
 
@@ -42,9 +44,10 @@ const RegistroMascotas = () => {
    
     setTimeout(() => {
       /* Simulando en consumir API */
-       setLoading(false)
-       reset()
-       toast.success('Mascota guardada con éxito!');
+      setLoading(false)
+      setMascotas(prev => [...prev, mascota])
+      reset()
+      toast.success('Mascota guardada con éxito!');
   
     },4000)
   }
@@ -183,6 +186,7 @@ const RegistroMascotas = () => {
       </form>
       {/* Contenedor de notificaciones */}
       <ToastContainer position="top-right" autoClose={3000} />
+      <MascotaTable data={mascotas} />
     </div>
   )
 }
