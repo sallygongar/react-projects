@@ -1,0 +1,58 @@
+.content_mascotas{
+  width: 100%;
+  padding: 20px;
+  margin: 30px 0;
+  @media (max-width: 768px) {
+    margin: 15px 0;
+    padding: 10px;
+  }
+  h2{
+    font-family: var(--font-monserrat);
+    font-size: 40px;
+    text-align: center;
+    @media (max-width: 768px) {
+      font-size: 25px;
+    }
+  }
+  .table_mascotas{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    @media (max-width: 768px) {
+      width: 338px;
+      overflow-x: auto;
+      padding: 10px;
+      gap: 10px;
+    }
+    .row_mascota_header{
+      display: flex;
+      gap: 16px;
+      span{
+        font-size: 20px;
+        font-weight: 500;
+        flex: 1;
+        white-space: nowrap;
+        font-family: var(--font-monserrat);
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
+      }
+    }
+    .row_mascota{
+      display: flex;
+      gap: 16px;
+      border-bottom: 1px solid #ccc;
+      span{
+        font-family: var(--font-monserrat);
+        font-size: 16px;
+        flex: 1;
+        padding: 5px;
+        white-space: nowrap;
+        @media (max-width: 768px) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

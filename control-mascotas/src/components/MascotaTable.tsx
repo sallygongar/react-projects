@@ -8,32 +8,31 @@ type Props = {
 const MascotaTable: React.FC<Props> = ({data}) => {
   
   return(
-    <table>
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Especie</th>
-          <th>Raza</th>
-          <th>Sexo</th>
-          <th>Fecha de nacimiento</th>
-          <th>Color</th>
-        </tr>
-      </thead>
-      <tbody>
-       {
+    <div className="content_mascotas">
+      <h2>Lista de mascotas</h2>
+      <div className="table_mascotas">
+        <div className="row_mascota_header">
+          <span>Nombre</span>
+          <span>Nacimiento</span>
+          <span>Especie</span>
+          <span>Raza</span>
+          <span>Sexo</span>
+          <span>Color</span>
+        </div>
+        {
           data.map((mascota, key) =>(
-            <tr key={key}>
-              <td>{mascota.mascota}</td>
-              <td>{mascota.especie}</td>
-              <td>{mascota.raza}</td>
-              <td>{mascota.sexo}</td>
-              <td>{mascota.fechaNacimiento}</td>
-              <td>{mascota.color}</td>
-            </tr>
+            <div key={key} className="row_mascota">
+              <span>{mascota.mascota}</span>
+              <span>{mascota.fechaNacimiento}</span>
+              <span>{mascota.especie}</span>
+              <span>{mascota.raza}</span>
+              <span>{mascota.sexo}</span>
+              <span>{mascota.color}</span>
+            </div>
           ))
         }
-      </tbody>
-    </table>
+      </div>
+    </div>
   )
 }
 

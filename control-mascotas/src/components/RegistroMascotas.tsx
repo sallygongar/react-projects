@@ -24,6 +24,7 @@ const RegistroMascotas = () => {
 
   const handleImagenChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
+    //console.log("Imagen:", file)
     if (file) {
       const url = URL.createObjectURL(file);
       setAvatar(url);
@@ -33,8 +34,6 @@ const RegistroMascotas = () => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const name = e.target.name;
     const value = e.target.value;
-    //console.log("Name:", name)
-    //console.log("Value:", value)
     setMascota({...mascota, [name]: value});
   }
 
