@@ -29,7 +29,7 @@
       display: flex;
       gap: 16px;
       span{
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 500;
         flex: 1;
         white-space: nowrap;
@@ -45,12 +45,12 @@
       border-bottom: 1px solid #ccc;
       span{
         font-family: var(--font-monserrat);
-        font-size: 16px;
+        font-size: 14px;
         flex: 1;
         padding: 5px;
         white-space: nowrap;
         @media (max-width: 768px) {
-          font-size: 14px;
+          font-size: 12px;
         }
       }
     }

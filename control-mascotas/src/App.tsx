@@ -1,10 +1,10 @@
-import RegistroMascotas from "./components/RegistroMascotas";
+import PageMain from "./components/PageMain"
 
 function App() {
 
   return (
     <>
-      <RegistroMascotas/>
+      <PageMain/>
     </>
   )
 }

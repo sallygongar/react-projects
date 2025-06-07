@@ -1,57 +1,92 @@
-.main{
+.modal_overlay{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  h2{
-    margin: 10px 0;
-  }
-  .form_registro{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px 15px;
+  justify-content: center;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  .modal_content{
+    background: #fff;
+    width: 70%;
     padding: 20px;
-    width: 800px;
-    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease-out;
+    position: relative;
     @media (max-width: 768px) {
-      grid-template-columns: 1fr;
       width: 100%;
-      margin-top: 0;
     }
-    .form_group{
+    .modal-close{
+      width: 40px;
+      height: 40px;
+      font-size: 30px;
+      position: absolute;
+      right: 1.5rem;
+      top: 1.5rem;
+      background: transparent;
+      cursor: pointer;
+      @media (max-width: 768px) {
+        right: 0.5rem;
+        top: 0;
+      }
+    }
+    .main{
       display: flex;
+      justify-content: center;
+      align-items: center;
       flex-direction: column;
-      position: relative;
-      label{
-        font-size: 14px;
-        position: absolute;
-        top: -8px;
-        left: 15px;
-        background: #fff;
-        z-index: 10;
-        padding: 0 8px;
+      h2{
+        margin: 5px 0;
       }
-      input, select{
-        height: 40px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        font-family: var(--font-monserrat);
-        padding: 0.5rem;
-        
+      .form_registro{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 10px;
+        width: 800px;
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+          width: 100%;
+          margin-top: 0;
+        }
+        .form_group{
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          label{
+            font-size: 14px;
+            position: absolute;
+            top: -8px;
+            left: 15px;
+            background: #fff;
+            z-index: 10;
+            padding: 0 8px;
+          }
+          input, select{
+            height: 40px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-family: var(--font-monserrat);
+            padding: 0.5rem;
+            
+          }
+        .message_error{
+          color: red;
+          font-size: 12px;
+        }
+    }
+    .form_group_file{
+      grid-column: 1 / -1;
+      @media (max-width: 768px) {
+        justify-self: center;
       }
-      .message_error{
-        color: red;
-        font-size: 12px;
+      .form_input-avatar{
+        display: none;
       }
-    }
-  .form_group_file{
-    grid-column: 1 / -1;
-    @media (max-width: 768px) {
-      justify-self: center;
-    }
-    .form_input-avatar{
-      display: none;
-    }
     .form_foto{
       width: 120px;
       height: 120px;
@@ -108,5 +143,9 @@
       }
     }
   }
+  }
+  }
 }
+
+
 
