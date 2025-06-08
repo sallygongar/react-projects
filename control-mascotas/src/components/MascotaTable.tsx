@@ -3,9 +3,11 @@ import type { Mascota } from "../types/mascota.interface"
 
 type Props = {
   data: Mascota[]; // 👈 aquí defines que esperas una prop llamada "data"
+  onEdit: (id: number) => void;
+  onDelete: (id: number) => void;
 };
 
-const MascotaTable: React.FC<Props> = ({data}) => {
+const MascotaTable: React.FC<Props> = ({data, onEdit, onDelete}) => {
   
   return(
     <div className="content_mascotas">
@@ -17,6 +19,7 @@ const MascotaTable: React.FC<Props> = ({data}) => {
           <span>Raza</span>
           <span>Sexo</span>
           <span>Color</span>
+          <span>Acciones</span>
         </div>
         {
           data.map((mascota, key) =>(
@@ -27,6 +30,20 @@ const MascotaTable: React.FC<Props> = ({data}) => {
               <span>{mascota.raza}</span>
               <span>{mascota.sexo}</span>
               <span>{mascota.color}</span>
+              <span className="item_actions">
+                <button
+                  title="Editar"
+                  onClick={() => onEdit(key)}
+                 >
+                ✏️
+                </button>
+                 <button
+                  title="Eliminar"
+                  onClick={() => onDelete(key)}
+                 >
+                🗑️
+                </button>
+              </span>
             </div>
           ))
         }

@@ -53,6 +53,13 @@
           font-size: 12px;
         }
       }
+      .item_actions{
+       button{
+        width: 40px;
+        background-color: transparent;
+        cursor: pointer;
+       }
+      }
     }
   }
 }
