@@ -17,6 +17,8 @@ const PageMain = () => {
   })
   
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const [mascotaEdit, setMascotaEdit] = useState<Mascota | undefined | null>(null)
+  const [editIndex,setEditIndex] = useState<number | null>(null);
 
   useEffect(()=>{
     // Cargar información del local storage
@@ -31,14 +33,29 @@ const PageMain = () => {
   },[mascotas])
 
   const newMascota = (mascota: Mascota) => {
-    setMascotas((prev) => [...prev, mascota])
+    if(editIndex){
+      setMascotas(prev => {
+        const mascotaCopy = [...prev]
+        mascotaCopy[editIndex] = mascota;
+        return mascotaCopy
+      })
+      setEditIndex(null)
+    }else{
+      setMascotas((prev) => [...prev, mascota])
+    }
+  
     setTimeout(() =>{
       setOpenModal(false) 
     },4000)   
   }
 
   const editMascota = (id: number) => {
-    console.log("Item a Editar:", id)
+    const mascotaEdit = mascotas.filter((_, i) => i == id);
+    setEditIndex(id)
+    if(mascotaEdit.length > 0){
+      setMascotaEdit(mascotaEdit[0])
+      setOpenModal(true)
+    }
   }
 
   const deleteMascota = (id: number) => {
@@ -54,7 +71,7 @@ const PageMain = () => {
      { mascotas.length > 0 ? <MascotaTable data={mascotas} onEdit={editMascota} onDelete={deleteMascota}/> : <h3>Aún no hay mascotas registradas</h3>}
       {
         openModal && (
-          <RegistroMascotas onClose={() => setOpenModal(false)} onSave={newMascota} />
+          <RegistroMascotas onClose={() => setOpenModal(false)} onSave={newMascota} mascotaEdit={mascotaEdit} />
         )
       }
        {/* Contenedor de notificaciones */}

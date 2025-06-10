@@ -8,12 +8,14 @@ import 'react-toastify/dist/ReactToastify.css';
 interface IModalProps {
   onClose: () => void;
   onSave: (mascota: Mascota) => void;
+  mascotaEdit?: Mascota | null | undefined;
 }
 
-const RegistroMascotas = ({ onClose, onSave }:IModalProps ) => {
+const RegistroMascotas = ({ onClose, onSave, mascotaEdit }:IModalProps ) => {
   const [avatar, setAvatar] = useState<string | null>(null);
   const [loading,setLoading] = useState<boolean>(false);
-  const [mascota,setMascota] = useState<Mascota>({
+  const [mascota,setMascota] = useState<Mascota>(
+    mascotaEdit ?? {
     mascota: "",
     especie: "",
     raza: "",
