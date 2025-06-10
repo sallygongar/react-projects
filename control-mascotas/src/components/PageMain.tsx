@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MascotaTable from "./MascotaTable";
 import RegistroMascotas from "./RegistroMascotas";
 import type { Mascota } from "../types/mascota.interface";
-//import { toast, ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 const LOCAL_STORAGE_KEY = 'mascotas';
 
@@ -35,17 +35,18 @@ const PageMain = () => {
 
   const newMascota = (mascota: Mascota) => {
     if(mode=="EDIT" && editIndex!=null){
-      setMascotaEdit(null)
-      setMode('NEW')
       setMascotas(prev => {
       const mascotaCopy = [...prev]
       mascotaCopy[editIndex] = mascota;
         return mascotaCopy
       })
-      
+      toast.success('Mascota actualizada con éxito!');
     }else{
       setMascotas((prev) => [...prev, mascota])
+      toast.success('Mascota guardada con éxito!');
     }
+    setMascotaEdit(null)
+    setMode('NEW')
     setTimeout(() =>{
       setOpenModal(false) 
     },3000)   
@@ -64,6 +65,8 @@ const PageMain = () => {
   const deleteMascota = (id: number) => {
     const newMascotas = mascotas.filter((_, i) => i !== id);
     setMascotas(newMascotas);
+    toast.error('La información se ha eliminado!');
+    setMascotaEdit(null)
   }
 
   return(
@@ -79,7 +82,7 @@ const PageMain = () => {
         )
       }
        {/* Contenedor de notificaciones */}
-      {/*<ToastContainer position="top-right" autoClose={5000} />*/}
+      {<ToastContainer position="top-right" autoClose={2000} />}
     </div>
   )
 }

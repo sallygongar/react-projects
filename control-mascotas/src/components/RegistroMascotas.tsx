@@ -2,8 +2,7 @@ import { useState, type ChangeEvent } from "react";
 import type { Mascota } from "../types/mascota.interface";
 import avatarMascotas from  '../assets/images/huella.png';
 import Spinner from './Spinner';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 interface IModalProps {
   onClose: () => void;
@@ -53,7 +52,7 @@ const RegistroMascotas = ({ onClose, onSave, mascotaEdit }:IModalProps ) => {
       setLoading(false)
       onSave(mascota)
       reset()
-      toast.success('Mascota guardada con éxito!');
+      
     },3000)
   }
 
@@ -99,7 +98,6 @@ const RegistroMascotas = ({ onClose, onSave, mascotaEdit }:IModalProps ) => {
     /* Si hay error se cancela el loading */
     if(isError){
       setLoading(false)
-      toast.error("Favor de verificar los campos")
     }
 
     setErrores(nuevosErrores)
@@ -167,8 +165,8 @@ const RegistroMascotas = ({ onClose, onSave, mascotaEdit }:IModalProps ) => {
                 <label htmlFor="sexo">Sexo</label>
                 <select name="sexo" id="sexo" value={mascota.sexo} onChange={handleInputChange}>
                   <option value="" disabled>Selecciona opcion</option>
-                  <option value="Macho">Macho</option>
-                  <option value="Hembra">Hembra</option>
+                  <option value="MACHO">MACHO</option>
+                  <option value="HEMBRA">HEMBRA</option>
                 </select>
                 <span className="message_error">{errores.sexo}</span>
               </div>
@@ -195,9 +193,6 @@ const RegistroMascotas = ({ onClose, onSave, mascotaEdit }:IModalProps ) => {
                 <button type="button" className="button_save" onClick={handleSave} disabled={loading}>{loading ? <Spinner/> : 'Guardar'}</button>
               </div>
           </form>
-          {/* Contenedor de notificaciones */}
-          <ToastContainer position="top-right" autoClose={2000} />
-     
       </div>
     </div>
   </div>
