@@ -33,6 +33,7 @@ const PageMain = () => {
   },[mascotas])
 
   const newMascota = (mascota: Mascota) => {
+    console.log("Valor de editIndex:", editIndex)
     if(editIndex){
       setMascotas(prev => {
         const mascotaCopy = [...prev]
@@ -40,6 +41,7 @@ const PageMain = () => {
         return mascotaCopy
       })
       setEditIndex(null)
+      return
     }else{
       setMascotas((prev) => [...prev, mascota])
     }
@@ -59,7 +61,8 @@ const PageMain = () => {
   }
 
   const deleteMascota = (id: number) => {
-    console.log("Item a Eliminar:", id)
+    const newMascotas = mascotas.filter((_, i) => i !== id);
+    setMascotas(newMascotas);
   }
 
   return(
