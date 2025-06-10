@@ -22,7 +22,8 @@ const RegistroMascotas = ({ onClose, onSave, mascotaEdit }:IModalProps ) => {
     sexo: "",
     fechaNacimiento: "",
     color: "",
-    esterilizado: ""
+    esterilizado: "",
+    avatar: ""
   });
 
 
@@ -30,9 +31,9 @@ const RegistroMascotas = ({ onClose, onSave, mascotaEdit }:IModalProps ) => {
 
   const handleImagenChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    //console.log("Imagen:", file)
     if (file) {
       const url = URL.createObjectURL(file);
+      setMascota({...mascota, avatar: url})
       setAvatar(url);
     }
   };
@@ -113,7 +114,8 @@ const RegistroMascotas = ({ onClose, onSave, mascotaEdit }:IModalProps ) => {
       sexo: "",
       fechaNacimiento: "",
       color: "",
-      esterilizado: ""
+      esterilizado: "",
+      avatar: ""
     })
   }
 

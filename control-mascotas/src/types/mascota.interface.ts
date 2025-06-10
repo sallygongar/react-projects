@@ -6,5 +6,6 @@ export interface Mascota{
     fechaNacimiento: string;
     color: string;
     esterilizado: string;
-    foto?: File
+    foto?: File;
+    avatar?: string;
 }

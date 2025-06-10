@@ -13,6 +13,7 @@ const MascotaTable: React.FC<Props> = ({data, onEdit, onDelete}) => {
     <div className="content_mascotas">
       <div className="table_mascotas">
         <div className="row_mascota_header">
+          <span>Foto</span>
           <span>Nombre</span>
           <span>Nacimiento</span>
           <span>Especie</span>
@@ -24,6 +25,7 @@ const MascotaTable: React.FC<Props> = ({data, onEdit, onDelete}) => {
         {
           data.map((mascota, key) =>(
             <div key={key} className="row_mascota">
+              <span>{mascota.avatar && <img src={mascota.avatar} alt={mascota.mascota} className="foto_mascota"/>}</span>
               <span>{mascota.mascota}</span>
               <span>{mascota.fechaNacimiento}</span>
               <span>{mascota.especie}</span>
