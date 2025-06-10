@@ -19,3 +19,7 @@ Este repositorio contiene aplicaciónes funcionales en React
 - To do list
 
 ![Screenshot](/02-to-do-list/src/assets/images/task_list.gif)
+
+- Control de mascotas
+
+![Screenshot](/control-mascotas/src/assets/images/SAVE.gif)
