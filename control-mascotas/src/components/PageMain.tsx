@@ -19,6 +19,7 @@ const PageMain = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [mascotaEdit, setMascotaEdit] = useState<Mascota | undefined | null>(null)
   const [editIndex,setEditIndex] = useState<number | null>(null);
+  const [mode,setMode] = useState<string>('NEW');
 
   useEffect(()=>{
     // Cargar información del local storage
@@ -33,22 +34,21 @@ const PageMain = () => {
   },[mascotas])
 
   const newMascota = (mascota: Mascota) => {
-    console.log("Valor de editIndex:", editIndex)
-    if(editIndex){
+    if(mode=="EDIT" && editIndex!=null){
+      setMascotaEdit(null)
+      setMode('NEW')
       setMascotas(prev => {
-        const mascotaCopy = [...prev]
-        mascotaCopy[editIndex] = mascota;
+      const mascotaCopy = [...prev]
+      mascotaCopy[editIndex] = mascota;
         return mascotaCopy
       })
-      setEditIndex(null)
-      return
+      
     }else{
       setMascotas((prev) => [...prev, mascota])
     }
-  
     setTimeout(() =>{
       setOpenModal(false) 
-    },4000)   
+    },3000)   
   }
 
   const editMascota = (id: number) => {
@@ -57,6 +57,7 @@ const PageMain = () => {
     if(mascotaEdit.length > 0){
       setMascotaEdit(mascotaEdit[0])
       setOpenModal(true)
+      setMode('EDIT')
     }
   }
 
