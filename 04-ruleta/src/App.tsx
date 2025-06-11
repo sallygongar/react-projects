@@ -1,10 +1,10 @@
-
+import Main from "./components/Main"
 function App() {
 
 
   return (
     <>
-     <h1>Hola mundo</h1>
+     <Main/>
     </>
   )
 }
