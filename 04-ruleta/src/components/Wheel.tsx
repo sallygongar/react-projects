@@ -24,15 +24,20 @@ const Wheel = ({promotions, colors}: WheelProps) => {
       radio,
       (index * 2 * Math.PI) / numberSegments,
       ((index + 1) * 2 * Math.PI) / numberSegments
-    )
-    context.lineTo(centerX, centerY)
-    context.lineWidth = 4;
+    ) // Traza un arco (una porción del círculo)
+    context.lineTo(centerX, centerY) // Cierra el arco al centro, creando una "rebanada"
+
+    //Configura el estilo del borde y lo dibuja
+    context.lineWidth = 8;
     context.strokeStyle  = '#DB061C';
     context.stroke();
+
+    //Rellena el segmento con un color
     context.fillStyle = index % 2 === 0 ? colors[0] : colors[1];
     context.fill();
-    context.save();
 
+   // Transforma el contexto para preparar la escritura de texto
+    context.save();
     context.translate(centerX, centerY);
     context.rotate(
       (3 * 2 * Math.PI) / (numberSegments * numberSegments ) + (index * 2 * Math.PI) / numberSegments
@@ -40,10 +45,40 @@ const Wheel = ({promotions, colors}: WheelProps) => {
     context.translate(-centerX,-centerY);
     context.textAlign = 'center';
     context.textBaseline = 'top';
-    context.fillStyle = '#111'
-    context.restore()
+    context.fillStyle = index % 2 === 0 ? '#111' : '#fff';
 
-  } 
+    const textPromotion = promotions[index];
+    const valueX= (centerX / 2) * 3.2;
+    const valueY = centerY - 10;
+
+    drawText(context,textPromotion, valueX, valueY )
+    context.restore()
+  }
+
+  function drawText(
+    context: CanvasContext,
+    text: string,
+    x: number,
+    y: number
+  ){
+    if(context){
+      const lines = text.split('\n');
+      let yOffset = 0;
+
+      lines.forEach(line => {
+        if(line.includes('*')){
+          context.font = '600 14px Montserrat';
+          context.fillText(line.replace(/\*/g, ''), x, y + yOffset)
+        }else{
+          context.font = '400 14px Montserrat'
+          context.fillText(line, x, y + yOffset)
+        }
+        yOffset += 15 // Aumentamos el desplazamiento para la siguiente línea
+      })
+
+    }
+  }
+
 
   useEffect(()=>{
     const canvas = canvasRef.current;
@@ -62,8 +97,6 @@ const Wheel = ({promotions, colors}: WheelProps) => {
           drawWheel(canvas, ctx, i, numberSegments, centerX, centerY, radio)
         }
       }
-   
-
   },[promotions])
 
   return(
