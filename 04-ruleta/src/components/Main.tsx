@@ -16,8 +16,9 @@ const colors = ['#fff', '#DB061C'];
 const Main = () => {
   
   return(
-    <div>
+    <div className="ruleta">
       <Wheel promotions={promotions} colors={colors}/>
+      <div className="ruleta_right_wrapper">Formulario</div>
     </div>
   )
 }

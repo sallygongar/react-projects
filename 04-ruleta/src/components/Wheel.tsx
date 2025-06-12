@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import type { WheelProps, Canvas, CanvasContext } from "../types/wheel";
+import ping from '../assets/images/ping.png';
 
 const Wheel = ({promotions, colors}: WheelProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -100,7 +101,9 @@ const Wheel = ({promotions, colors}: WheelProps) => {
   },[promotions])
 
   return(
-    <div>
+    <div className="ruleta_left_wrapper">
+      <div className="ruleta_circle"></div>
+      <div className="ruleta_ping"><img src={ping} alt="ping" width="100%"/></div>
       <canvas ref={canvasRef} width={400} height={400}></canvas>
     </div>
   )
