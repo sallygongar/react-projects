@@ -5,6 +5,7 @@ import { isMobile } from 'react-device-detect';
 
 const Wheel = ({promotions, colors}: WheelProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  let isSpinning = true;
 
   const drawWheel = (
     canvas: Canvas, 
@@ -104,7 +105,7 @@ const Wheel = ({promotions, colors}: WheelProps) => {
   return(
     <div className="ruleta_left_wrapper">
       <div className="ruleta_circle"></div>
-      <div className="ruleta_ping"><img src={ping} alt="ping" width="100%"/></div>
+      <div className={`ruleta_ping ${ isSpinning ? 'ruleta_animated_ping' : ''}`}><img src={ping} alt="ping" width="100%"/></div>
       <canvas ref={canvasRef} width={isMobile ? 350: 400} height={isMobile ? 350 : 400}></canvas>
     </div>
   )

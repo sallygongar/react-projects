@@ -35,6 +35,14 @@
         height: 35px;
         right: 20px;
       }
+     
     }
+    .ruleta_animated_ping{
+      animation: animation_ping .1s linear 85 .2s ;
+    }
+    @keyframes animation_ping {
+      0% { transform: rotate(45deg) }
+      100% { transform: rotate(55deg);}
+    } 
   }
 }
