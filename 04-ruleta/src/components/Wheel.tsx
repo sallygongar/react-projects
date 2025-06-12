@@ -50,7 +50,7 @@ const Wheel = ({promotions, colors}: WheelProps) => {
     context.textBaseline = 'top';
     context.fillStyle = index % 2 === 0 ? '#111' : '#fff';
 
-    const textPromotion = promotions[index];
+    const textPromotion = promotions[index].description;
     const valueX= (centerX / 2) * 3.2;
     const valueY = centerY - 10;
 
