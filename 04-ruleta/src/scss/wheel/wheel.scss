@@ -25,6 +25,16 @@
       width: 45px;
       height: 45px;
       transform: rotate(50deg);
+      @media (max-width: 768px) {
+        width: 35px;
+        height: 35px;
+        right: 40px;
+      }
+       @media (max-width: 390px) {
+        width: 35px;
+        height: 35px;
+        right: 20px;
+      }
     }
   }
 }

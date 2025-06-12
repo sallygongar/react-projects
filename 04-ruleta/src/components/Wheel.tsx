@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import type { WheelProps, Canvas, CanvasContext } from "../types/wheel";
 import ping from '../assets/images/ping.png';
+import { isMobile } from 'react-device-detect';
 
 const Wheel = ({promotions, colors}: WheelProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -91,7 +92,7 @@ const Wheel = ({promotions, colors}: WheelProps) => {
       const numberSegments = promotions.length;
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
-      const radio = 180;
+      const radio = isMobile ?  150 : 180;
 
       if(promotions.length > 0){
         for(let i = 0; i < promotions.length; i++){
@@ -104,7 +105,7 @@ const Wheel = ({promotions, colors}: WheelProps) => {
     <div className="ruleta_left_wrapper">
       <div className="ruleta_circle"></div>
       <div className="ruleta_ping"><img src={ping} alt="ping" width="100%"/></div>
-      <canvas ref={canvasRef} width={400} height={400}></canvas>
+      <canvas ref={canvasRef} width={isMobile ? 350: 400} height={isMobile ? 350 : 400}></canvas>
     </div>
   )
 }
