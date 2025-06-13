@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import Wheel from "./Wheel";
+ import type { promotion } from "../types/wheel";
 
-const promotions = [
+const promotionList: promotion[] = [
   {
     description: '*30%*\nen pañales\n*Huggies*',
     code: '30PAHU',
@@ -54,7 +56,35 @@ const promotions = [
 
 const colors = ['#fff', '#DB061C'];
 
-const Main = () => {
+const Roulette = () => {
+  const [promotions,setPromotions] = useState<promotion[]>([])
+
+  useEffect(()=>{
+    const promotionsBase = promotionList;
+
+    for(let i = 0; i < promotionsBase.length; i++ ){
+      const range = (1 * promotionsBase[i].probability) / 100
+      promotionsBase[i] = { ...promotionsBase[i], range: range}
+    }
+
+    const orderedPromotions = [...promotionsBase].sort(
+      (a, b) => b.probability - a.probability
+    )
+ 
+    /* Configurando grados */
+    for(let i = 0; i < orderedPromotions.length; i++){
+      if( i === 0){
+        orderedPromotions[i] = { ...orderedPromotions[i], grade: -45 }
+      }else{
+        
+        orderedPromotions[i] = {
+          ...orderedPromotions[i], grade: (orderedPromotions[i - 1].grade || 0) - (360 / orderedPromotions.length)
+        }
+      }
+    }
+    setPromotions(orderedPromotions)
+    
+  },[])
   
   return(
     <div className="ruleta">
@@ -64,4 +94,4 @@ const Main = () => {
   )
 }
 
-export default Main;
+export default Roulette;

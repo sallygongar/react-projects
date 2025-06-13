@@ -1,10 +1,10 @@
-import Main from "./components/Main"
+import Roulette from "./components/Roulette"
 function App() {
 
 
   return (
     <>
-     <Main/>
+     <Roulette/>
     </>
   )
 }

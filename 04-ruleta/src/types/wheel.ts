@@ -1,5 +1,4 @@
-export type WheelProps = {
-  promotions: {
+export type promotion = {
     description: string
     code: string
     probability: number
@@ -7,7 +6,10 @@ export type WheelProps = {
     range?: number
     isWin?: boolean
     termsConditions?: string
-  }[],
+  }
+
+export type WheelProps = {
+  promotions: promotion[],
   colors: string[]
 }
 
