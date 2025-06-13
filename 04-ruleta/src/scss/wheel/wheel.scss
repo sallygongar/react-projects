@@ -45,4 +45,16 @@
       100% { transform: rotate(55deg);}
     } 
   }
+  .ruleta_right_wrapper{
+    .ruleta_play{
+      height: 50px;
+      width: 150px;
+      padding: 10px;
+      background: #DB061C;
+      font-size: 16px;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: 500;
+    }
+  }
 }

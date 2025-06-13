@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Wheel from "./Wheel";
- import type { promotion } from "../types/wheel";
+import InfoPanel from "./InfoPanel";
+ import type { IPromotion } from "../types/wheel";
 
-const promotionList: promotion[] = [
+const promotionList: IPromotion[] = [
   {
     description: '*30%*\nen pañales\n*Huggies*',
     code: '30PAHU',
@@ -57,7 +58,7 @@ const promotionList: promotion[] = [
 const colors = ['#fff', '#DB061C'];
 
 const Roulette = () => {
-  const [promotions,setPromotions] = useState<promotion[]>([])
+  const [promotions,setPromotions] = useState<IPromotion[]>([])
 
   useEffect(()=>{
     const promotionsBase = promotionList;
@@ -85,11 +86,15 @@ const Roulette = () => {
     setPromotions(orderedPromotions)
     
   },[])
+
+  function playRoulette(){
+    console.log("Jugar...")
+  }
   
   return(
     <div className="ruleta">
       <Wheel promotions={promotions} colors={colors}/>
-      <div className="ruleta_right_wrapper">Formulario</div>
+      <InfoPanel playRoulette={playRoulette}/>
     </div>
   )
 }
