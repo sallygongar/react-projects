@@ -1,11 +1,13 @@
 import { useEffect, useRef } from "react";
-import type { WheelProps, Canvas, CanvasContext } from "../types/wheel";
+import type { Canvas, CanvasContext } from "../types/wheel";
 import ping from '../assets/images/ping.png';
 import { isMobile } from 'react-device-detect';
+import { useRoulette } from "../context/roulette/rouletteHook";
 
-const Wheel = ({promotions, colors}: WheelProps) => {
+const Wheel = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   let isSpinning = true;
+  const { promotions, colors } = useRoulette();
 
   const drawWheel = (
     canvas: Canvas, 

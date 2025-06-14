@@ -1,10 +1,13 @@
 import Roulette from "./components/Roulette"
+import { RouletteProvider } from "./context/roulette/RouletteProvider"
 function App() {
 
 
   return (
     <>
-     <Roulette/>
+    <RouletteProvider>
+      <Roulette/>
+    </RouletteProvider>
     </>
   )
 }
