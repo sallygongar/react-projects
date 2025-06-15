@@ -6,8 +6,7 @@ import { useRoulette } from "../context/roulette/rouletteHook";
 
 const Wheel = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  let isSpinning = true;
-  const { promotions, colors } = useRoulette();
+  const { promotions, colors, degreeToFall, isSpinning } = useRoulette();
 
   const drawWheel = (
     canvas: Canvas, 
@@ -103,6 +102,15 @@ const Wheel = () => {
         }
       }
   },[promotions])
+
+  useEffect(() => {
+    if(degreeToFall && degreeToFall > 0){
+      const canvas = canvasRef.current;
+      if(!canvas) return
+      canvas.style.transition = "all 10s";
+      canvas.style.transform = `rotate(${degreeToFall}deg)`;
+    }
+  },[degreeToFall])
 
   return(
     <div className="ruleta_left_wrapper">

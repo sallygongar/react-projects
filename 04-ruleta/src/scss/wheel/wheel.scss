@@ -56,6 +56,10 @@
       color: #fff;
       font-weight: 500;
       cursor: pointer;
+      &.ruleta_play_disabled{
+        background-color: #ccc;
+        cursor: auto;
+      }
     }
   }
 }
