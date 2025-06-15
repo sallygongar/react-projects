@@ -1,6 +1,9 @@
-import type { IActions } from "../types/wheel";
+import { useRoulette } from "../context/roulette/rouletteHook";
 
-const InfoPanel = ({ playRoulette }: IActions) => {
+const InfoPanel = () => {
+  
+  const { playRoulette } = useRoulette();
+
   return(
     <div className="ruleta_right_wrapper">
       <button type="button" className="ruleta_play" onClick={playRoulette}>Jugar</button>
