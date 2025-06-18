@@ -11,6 +11,8 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
   const [spinRoulette, setSpinRoulette] = useState(false);
   const [degreeToFall, setDegreeToFall] = useState<number>(0);
   const [isSpinning, setIsSpinning] = useState<boolean>(false);
+  const [lastRotation, setLastRotation] = useState(0);
+  const [lastPrizeAngule, setLastPrizeAngule] = useState(0);
 
   useEffect(()=>{
     setColors(['#fff', '#DB061C'])
@@ -30,22 +32,24 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
     )
  
     //Configurando grados
+
     for(let i = 0; i < orderedPromotions.length; i++){
       if( i === 0){
-        orderedPromotions[i] = { ...orderedPromotions[i], grade: -45 }
+        orderedPromotions[i] = { ...orderedPromotions[i], grade: 45 }
       }else{
         orderedPromotions[i] = {
-          ...orderedPromotions[i], grade: (orderedPromotions[i - 1].grade || 0) - (360 / orderedPromotions.length)
+          ...orderedPromotions[i], grade: (i +  1) * (360 / orderedPromotions.length)
         }
       }
     }
+    console.log("orderedPromotions:", orderedPromotions)
     setPromotions(orderedPromotions)
     
   },[])
 
   function playRoulette(){
     if(isSpinning) return
-    //console.log("Jugar...")
+    
     const randomNumber: number = Math.round(Math.random() * 100) / 100; 
     let acumulado: number = 0;
     let promotion: IPromotion | null = null;
@@ -69,18 +73,19 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
 
   useEffect(() => {
     if(promotion){
+      //console.log("Promoción obtenida:", promotion)
       setIsSpinning(true)
-      const degreeToWhichTheRouletteWillWall = promotion.grade || 0;
-      let turningDirection = spinRoulette
-            ? 360 * promotions.length
+
+      const anglePromotion = promotion.grade || 0;
+      let spins = 5
+      let baseRotation = spinRoulette
+            ? 360 * spins
             : 0;
 
-      //console.log("degreeToWhichTheRouletteWillWall:", degreeToWhichTheRouletteWillWall)
-      //console.log("turningDirection:", turningDirection)
-      //console.log("Total:", turningDirection - degreeToWhichTheRouletteWillWall)
-    
-      setDegreeToFall(turningDirection + degreeToWhichTheRouletteWillWall);
-      
+      let finaRotation = lastRotation + baseRotation - anglePromotion + lastPrizeAngule;
+      setDegreeToFall(finaRotation);
+      setLastRotation(finaRotation);
+      setLastPrizeAngule(anglePromotion);
     }
   },[promotion])
 

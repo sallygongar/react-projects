@@ -107,8 +107,10 @@ const Wheel = () => {
     if(degreeToFall && degreeToFall > 0){
       const canvas = canvasRef.current;
       if(!canvas) return
-      canvas.style.transition = "all 10s";
-      canvas.style.transform = `rotate(${degreeToFall}deg)`;
+
+        canvas.style.transition = "transform 10s ease-out";
+        canvas.style.transform = `rotate(${degreeToFall}deg)`;
+    
     }
   },[degreeToFall])
 
