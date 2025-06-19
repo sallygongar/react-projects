@@ -1,12 +1,12 @@
-import { useRoulette } from "../context/roulette/rouletteHook";
+import InvitationToPlay from "./InvitationToPlay";
 
 const InfoPanel = () => {
   
-  const { playRoulette, isSpinning } = useRoulette();
+
 
   return(
     <div className="ruleta_right_wrapper">
-      <button type="button" className={`ruleta_play ${isSpinning ? 'ruleta_play_disabled' : ''}`} onClick={playRoulette} disabled={isSpinning}>Jugar</button>
+      <InvitationToPlay/>
     </div>
   )
 }

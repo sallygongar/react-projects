@@ -13,6 +13,7 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
   const [isSpinning, setIsSpinning] = useState<boolean>(false);
   const [lastRotation, setLastRotation] = useState(0);
   const [lastPrizeAngule, setLastPrizeAngule] = useState(0);
+  const [acceptedTerm, setAcceptedTerm] = useState<boolean>(false) 
 
   useEffect(()=>{
     setColors(['#fff', '#DB061C'])
@@ -42,9 +43,7 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
         }
       }
     }
-    console.log("orderedPromotions:", orderedPromotions)
     setPromotions(orderedPromotions)
-    
   },[])
 
   function playRoulette(){
@@ -73,7 +72,7 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
 
   useEffect(() => {
     if(promotion){
-      //console.log("Promoción obtenida:", promotion)
+      console.log("Promoción obtenida:", promotion)
       setIsSpinning(true)
 
       const anglePromotion = promotion.grade || 0;
@@ -99,8 +98,13 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
     }
   }, [isSpinning]);
 
+  const onChangeTyC = (term: boolean) => {
+    console.log("VALOR DEL CHECKBOX:", term)
+    setAcceptedTerm(term)
+  }
+
   return(
-    <RouletteContext.Provider value={{promotions, colors, playRoulette, promotion, degreeToFall, isSpinning}}>
+    <RouletteContext.Provider value={{promotions, colors, playRoulette, promotion, degreeToFall, isSpinning, acceptedTerm, onChangeTyC}}>
       {
         children
       }

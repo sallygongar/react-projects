@@ -12,13 +12,14 @@ export interface WheelProps  {
   promotions: IPromotion[]
   colors: string[]
   promotion?: IPromotion | null
-
+  acceptedTerm: boolean
 }
 
 export interface IActions{
   playRoulette?: () => void
   isSpinning?: boolean
   degreeToFall?: number
+  onChangeTyC?: (value: boolean) => void
 }
 
 export type Canvas = HTMLCanvasElement | null;
