@@ -94,7 +94,7 @@ const Wheel = () => {
       const numberSegments = promotions.length;
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
-      const radio = isMobile ?  150 : 180;
+      const radio = isMobile ?  170 : 180;
 
       if(promotions.length > 0){
         for(let i = 0; i < promotions.length; i++){
@@ -117,7 +117,7 @@ const Wheel = () => {
     <div className="ruleta_left_wrapper">
       <div className="ruleta_circle"></div>
       <div className={`ruleta_ping ${ isSpinning ? 'ruleta_animated_ping' : ''}`}><img src={ping} alt="ping" width="100%"/></div>
-      <canvas ref={canvasRef} width={isMobile ? 350: 400} height={isMobile ? 350 : 400}></canvas>
+      <canvas ref={canvasRef} width={isMobile ? 375: 400} height={isMobile ? 375 : 400}></canvas>
     </div>
   )
 }
