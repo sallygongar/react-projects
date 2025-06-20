@@ -1,10 +1,13 @@
 .ruleta{
   display: flex;
   padding: 20px;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 20px;
-    padding: 0;
+    padding: 0 10px;
   }
   .ruleta_left_wrapper{
     display: flex;
@@ -29,14 +32,8 @@
       @media (max-width: 768px) {
         width: 35px;
         height: 35px;
-        right: 40px;
+        right: 8px;
       }
-       @media (max-width: 390px) {
-        width: 35px;
-        height: 35px;
-        right: 20px;
-      }
-     
     }
     .ruleta_animated_ping{
       animation: animation_ping .1s linear 85 .2s ;
@@ -47,6 +44,44 @@
     } 
   }
   .ruleta_right_wrapper{
+    display: flex;
+    justify-content: center;
+    .ruleta_invitation{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      .ruleta_invitation_description{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+         .checkbox-label{
+          margin-top: 10px;
+        }
+       
+        h3{
+          font-family: "Montserrat", sans-serif;
+          font-size: 25px;
+          line-height: 30px;
+          @media (max-width: 768px) {
+            font-size: 20px;
+            text-align: center;
+          }
+        }
+        p{
+          font-family: "Montserrat", sans-serif;
+          font-size: 16px;
+          width: 60%;
+          text-align: left;
+          line-height: 18px;
+          @media (max-width: 768px) {
+            line-height: 18px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+          }
+        }
+      }
+    }
     .ruleta_play{
       height: 50px;
       width: 150px;
@@ -57,6 +92,9 @@
       color: #fff;
       font-weight: 500;
       cursor: pointer;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
       &.ruleta_play_disabled{
         background-color: #ccc;
         cursor: auto;

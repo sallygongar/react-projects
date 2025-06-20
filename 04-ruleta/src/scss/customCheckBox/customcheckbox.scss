@@ -15,6 +15,9 @@ input[type="checkbox"] {
   cursor: pointer;
   user-select: none;
   gap: 5px;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
   .checkbox-custom{
     width: 18px;
     height: 18px;
@@ -38,8 +41,16 @@ input[type="checkbox"] {
     }
   }
   .checkbox-label span:last-child{
+    font-family: "Montserrat", sans-serif;
     margin-left: 8px;
     font-size: 16px;
+  }
+  .checkbox-text{
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
   }
 }
 
