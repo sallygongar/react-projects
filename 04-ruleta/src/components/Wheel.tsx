@@ -71,10 +71,10 @@ const Wheel = () => {
 
       lines.forEach(line => {
         if(line.includes('*')){
-          context.font = '600 14px Montserrat';
+          context.font = isMobile ? '600 12px Montserrat' : '600 14px Montserrat';
           context.fillText(line.replace(/\*/g, ''), x, y + yOffset)
         }else{
-          context.font = '400 14px Montserrat'
+          context.font = isMobile ? '600 12px Montserrat' : '600 14px Montserrat';
           context.fillText(line, x, y + yOffset)
         }
         yOffset += 15 // Aumentamos el desplazamiento para la siguiente línea
@@ -108,9 +108,8 @@ const Wheel = () => {
       const canvas = canvasRef.current;
       if(!canvas) return
 
-        canvas.style.transition = "transform 10s ease-out";
-        canvas.style.transform = `rotate(${degreeToFall}deg)`;
-    
+      canvas.style.transition = "transform 10s ease-out";
+      canvas.style.transform = `rotate(${degreeToFall}deg)`;
     }
   },[degreeToFall])
 
