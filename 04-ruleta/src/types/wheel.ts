@@ -1,3 +1,6 @@
+import type { ChangeEvent } from "react"
+import type { Prize } from "./user"
+
 export interface IPromotion {
   description: string
   code: string
@@ -12,14 +15,15 @@ export interface WheelProps  {
   promotions: IPromotion[]
   colors: string[]
   promotion?: IPromotion | null
-  acceptedTerm: boolean
 }
 
 export interface IActions{
-  playRoulette?: () => void
+  playRoulette?: (value: boolean) => void
   isSpinning?: boolean
   degreeToFall?: number
   onChangeTyC?: (value: boolean) => void
+  onInputChange?: (e: ChangeEvent<HTMLInputElement>) => void
+  onChangePrize?: (values: Prize) => void
 }
 
 export type Canvas = HTMLCanvasElement | null;
