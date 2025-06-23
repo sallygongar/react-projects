@@ -1,4 +1,5 @@
 import Roulette from "./components/Roulette"
+import { FormProvider } from "./context/Form/FormProvider"
 import { RouletteProvider } from "./context/roulette/RouletteProvider"
 import { UserProvider } from "./context/User/UserProvider"
 function App() {
@@ -8,7 +9,9 @@ function App() {
     <>
     <RouletteProvider>
       <UserProvider>
-        <Roulette/>
+       <FormProvider>
+         <Roulette/>
+       </FormProvider>
       </UserProvider>
     </RouletteProvider>
     </>

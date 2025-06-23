@@ -8,7 +8,7 @@ export interface Prize {
 }
 
 export interface User {
-  email: string
+  email?: string
   acceptedTerm: boolean
   prize?: Prize
 }

@@ -19,7 +19,7 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
   },[])
 
  
-  useEffect(()=>{
+  useEffect(() => { 
     const promotionsBase: IPromotion[] = promotionsList;
 
     for(let i = 0; i < promotionsBase.length; i++ ){
@@ -45,11 +45,8 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
     setPromotions(orderedPromotions)
   },[])
 
-  function playRoulette(acceptedTerm: boolean) {
-    console.log("Terminos y condicones:", acceptedTerm)
-    
+  function playRoulette() {
     if(isSpinning) return
-    if(!acceptedTerm) return
     
     const randomNumber: number = Math.round(Math.random() * 100) / 100; 
     let acumulado: number = 0;
