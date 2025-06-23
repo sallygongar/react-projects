@@ -22,8 +22,8 @@ const PanelToPlay = () =>{
           <p>Juega nuestra ruleta de descuentos y descubre cuanto puedes ahorrar en tus compras</p>
           <div className="ruleta_form_group">
             <input type="text" placeholder="Ingresa tu correo" value={inputs.email} onChange={onInputChange} name="email"/>
+             <CustomCheckbox label="Acepto los terminos y condiciones" checked={acceptedTerm} onChange={onChangeTyC}/>
           </div>
-          <CustomCheckbox label="Acepto los terminos y condiciones" checked={acceptedTerm} onChange={onChangeTyC}/>
         </div>
         <button type="button" className={`ruleta_play ${isSpinning ? 'ruleta_play_disabled' : ''}`} onClick={validateInformation} disabled={isSpinning}>Jugar</button>
       </div>

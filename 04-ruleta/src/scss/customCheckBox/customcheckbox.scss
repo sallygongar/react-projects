@@ -48,9 +48,6 @@ input[type="checkbox"] {
   .checkbox-text{
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
-    @media (max-width: 768px) {
-      font-size: 12px;
-    }
   }
 }
 

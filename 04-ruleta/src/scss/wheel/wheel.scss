@@ -54,12 +54,12 @@
     .ruleta_panel{
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 10px;
       .ruleta_panel_description{
         display: flex;
         flex-direction: column;
         gap: 5px;
-         .checkbox-label{
+        .checkbox-label{
           margin-top: 10px;
         }
         h3{
@@ -82,6 +82,32 @@
             width: 100%;
             text-align: center;
             font-size: 14px;
+          }
+        }
+        .ruleta_form_group{
+          display: flex;
+          flex-direction: column;
+          input{
+            width: 350px;
+            height: 35px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 0 5px;
+            font-size: 16px;
+            font-family: "Montserrat", sans-serif;
+            @media (max-width: 768px) {
+              width: 100%;
+            }
+            &:focus{
+              border: 1px solid #111;
+            }
+            &::placeholder{
+              font-family: "Montserrat", sans-serif;
+              font-size: 16px;
+              @media (max-width: 768px) {
+                font-size: 14px;
+              }
+            }
           }
         }
       }
