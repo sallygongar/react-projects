@@ -3,5 +3,7 @@ export interface FormInputs{
 }
 
 export interface FormErrors {
-  emailError?: ""
+  emailError?: string
+  terminosError?: string
+  
 }

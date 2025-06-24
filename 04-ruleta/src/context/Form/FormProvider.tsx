@@ -1,12 +1,12 @@
 import { useState, type ChangeEvent, type ReactNode } from "react";
 import FormContext from "./FormContext";
-import type { /*FormErrors,*/ FormInputs } from "../../types/forms";
+import type { /*FormErrors,*/ FormErrors, FormInputs } from "../../types/forms";
 
 export const FormProvider = ({ children } : { children: ReactNode}) => {
   const [inputs,setInputs] = useState<FormInputs>({
     email: ""
   });
-  //const [errors, setErrors] = useState<FormErrors>({});
+  const [errors, setErrors] = useState<FormErrors>({});
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -17,26 +17,28 @@ export const FormProvider = ({ children } : { children: ReactNode}) => {
   const onValidateForm = (values: FormInputs, acceptedTerm: boolean) => {
   const correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   let isValid = true;
+  let errorsNews: FormErrors = {}
 
    if(values.email){
       if(!correoRegex.test(values.email)){
-        console.log("No es un correo valido")
-        return isValid = false;
+        errorsNews['emailError'] = "No es un correo valido";
+        isValid = false;
       }
       if(!acceptedTerm){
-        console.log("Favor de aceptar terminos y condiciones...")
-        return isValid = false;
+        errorsNews['terminosError'] = "Debe aceptar terminos y condiciones.";
+        isValid = false;
       }
     }else{
-      console.log("Ingrese un email valido...")
-      return isValid = false;
+      errorsNews['emailError'] = "No es un correo valido";
+      isValid = false;
     }
+    setErrors(errorsNews);
     return isValid;
   }
 
   
 return(
-  <FormContext.Provider value={{inputs, onInputChange, onValidateForm}}>
+  <FormContext.Provider value={{inputs, onInputChange, onValidateForm, errors}}>
     {
       children
     }

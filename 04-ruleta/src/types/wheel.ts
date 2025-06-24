@@ -16,6 +16,7 @@ export interface WheelProps  {
   promotions: IPromotion[]
   colors: string[]
   promotion?: IPromotion | null
+  isDone?: boolean
 }
 
 export interface IActions{
@@ -26,6 +27,7 @@ export interface IActions{
   onInputChange?: (e: ChangeEvent<HTMLInputElement>) => void
   onChangePrize?: (values: Prize) => void
   onValidateForm?: (values: FormInputs, acceptedTerm: boolean) => boolean
+  onIsDone?: (value: boolean) => void
 }
 
 export type Canvas = HTMLCanvasElement | null;

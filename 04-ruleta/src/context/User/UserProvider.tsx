@@ -20,7 +20,7 @@ export const UserProvider = ({ children } : { children: ReactNode}) => {
 
   const onChangePrize = (values: Prize) => {
     setPrize(values);
-  } 
+  }
 
    
   return(

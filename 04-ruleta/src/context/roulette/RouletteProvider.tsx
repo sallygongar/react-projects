@@ -13,6 +13,7 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
   const [isSpinning, setIsSpinning] = useState<boolean>(false);
   const [lastRotation, setLastRotation] = useState(0);
   const [lastPrizeAngule, setLastPrizeAngule] = useState(0);
+  const [isDone, setIsDone] = useState<boolean>(false)
   
   useEffect(()=>{
     setColors(['#fff', '#DB061C'])
@@ -71,7 +72,6 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
 
   useEffect(() => {
     if(promotion){
-      console.log("Promoción obtenida:", promotion)
       setIsSpinning(true)
 
       const anglePromotion = promotion.grade || 0;
@@ -91,15 +91,17 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
     if (isSpinning) {
       setTimeout(() => {
         setIsSpinning(false);
-        setPromotion(null)
         setSpinRoulette(false)
       }, 10000);
     }
   }, [isSpinning]);
 
+  function onIsDone(value: boolean){
+    setIsDone(value)
+  }
 
   return(
-    <RouletteContext.Provider value={{promotions, colors, playRoulette, promotion, degreeToFall, isSpinning}}>
+    <RouletteContext.Provider value={{promotions, colors, playRoulette, promotion, degreeToFall, isSpinning, isDone, onIsDone}}>
       {
         children
       }

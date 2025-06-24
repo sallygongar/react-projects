@@ -6,7 +6,7 @@ import { useRoulette } from "../context/roulette/rouletteHook";
 
 const Wheel = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const { promotions, colors, degreeToFall, isSpinning } = useRoulette();
+  const { promotions, colors, degreeToFall, isSpinning, onIsDone, promotion, isDone } = useRoulette();
 
   const drawWheel = (
     canvas: Canvas, 
@@ -83,6 +83,21 @@ const Wheel = () => {
     }
   }
 
+  useEffect(() => {
+  const canvas = canvasRef.current;
+  if (!canvas) return;
+
+  const handleTransitionEnd = () => {
+    onIsDone?.(true)
+  };
+
+  canvas.addEventListener('transitionend', handleTransitionEnd);
+
+  return () => {
+    canvas.removeEventListener('transitionend', handleTransitionEnd);
+  };
+}, []);
+
 
   useEffect(()=>{
     const canvas = canvasRef.current;
@@ -112,6 +127,13 @@ const Wheel = () => {
       canvas.style.transform = `rotate(${degreeToFall}deg)`;
     }
   },[degreeToFall])
+
+  useEffect(() =>{
+    if(promotion && isDone){
+      //console.log("Valor de la promoción al finalizar el giro:", promotion)
+    }
+  },[promotion, isDone])
+
 
   return(
     <div className="ruleta_left_wrapper">
