@@ -8,7 +8,6 @@ const PanelPlay = () =>{
   const { acceptedTerm, onChangeTyC} = useUser();
   const { onInputChange, inputs, onValidateForm, errors } = useForm();
 
-
   const validateInformation = () => {
     if(onValidateForm?.(inputs, acceptedTerm)){
       playRoulette?.()

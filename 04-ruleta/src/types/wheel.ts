@@ -28,6 +28,9 @@ export interface IActions{
   onChangePrize?: (values: Prize) => void
   onValidateForm?: (values: FormInputs, acceptedTerm: boolean) => boolean
   onIsDone?: (value: boolean) => void
+  onClearUser?: () => void
+  onClearRoulette?: () => void
+  onClearForm?: () => void
 }
 
 export type Canvas = HTMLCanvasElement | null;

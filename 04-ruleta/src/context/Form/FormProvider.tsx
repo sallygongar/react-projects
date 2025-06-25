@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent, type ReactNode } from "react";
 import FormContext from "./FormContext";
-import type { /*FormErrors,*/ FormErrors, FormInputs } from "../../types/forms";
+import type { FormErrors, FormInputs } from "../../types/forms";
 
 export const FormProvider = ({ children } : { children: ReactNode}) => {
   const [inputs,setInputs] = useState<FormInputs>({
@@ -15,11 +15,11 @@ export const FormProvider = ({ children } : { children: ReactNode}) => {
   }
 
   const onValidateForm = (values: FormInputs, acceptedTerm: boolean) => {
-  const correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  let isValid = true;
-  let errorsNews: FormErrors = {}
+    const correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let isValid = true;
+    let errorsNews: FormErrors = {}
 
-   if(values.email){
+    if(values.email){
       if(!correoRegex.test(values.email)){
         errorsNews['emailError'] = "No es un correo valido";
         isValid = false;
@@ -36,9 +36,14 @@ export const FormProvider = ({ children } : { children: ReactNode}) => {
     return isValid;
   }
 
+  const onClearForm = () => {
+    setErrors({})
+    setInputs({email: ""})
+  }
+
   
 return(
-  <FormContext.Provider value={{inputs, onInputChange, onValidateForm, errors}}>
+  <FormContext.Provider value={{inputs, onInputChange, onValidateForm, errors, onClearForm}}>
     {
       children
     }

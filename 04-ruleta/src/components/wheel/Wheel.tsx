@@ -3,10 +3,14 @@ import type { Canvas, CanvasContext } from "../../types/wheel";
 import ping from '../../assets/images/ping.png';
 import { isMobile } from 'react-device-detect';
 import { useRoulette } from "../../context/roulette/rouletteHook";
+import { useUser } from "../../context/User/userHook";
+import { useForm } from "../../context/Form/formHook";
 
 const Wheel = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const { promotions, colors, degreeToFall, isSpinning, onIsDone, promotion, isDone } = useRoulette();
+  const { promotions, colors, degreeToFall, isSpinning, onIsDone, promotion, isDone, onClearRoulette } = useRoulette();
+  const { onChangePrize} = useUser();
+  const { onClearForm } = useForm();
 
   const drawWheel = (
     canvas: Canvas, 
@@ -129,8 +133,19 @@ const Wheel = () => {
   },[degreeToFall])
 
   useEffect(() =>{
-    if(promotion && isDone){
-      //console.log("Valor de la promoción al finalizar el giro:", promotion)
+    if(isDone){
+      console.log("Promotions:", promotion)
+      let prize = {
+        description: promotion?.description,
+        code: promotion?.code,
+        grade: promotion?.grade,
+        isWin: promotion?.isWin
+      }
+      onChangePrize?.(prize)
+      onClearRoulette?.()
+      onClearForm?.()
+      /*onClearUser?.()
+       */
     }
   },[promotion, isDone])
 

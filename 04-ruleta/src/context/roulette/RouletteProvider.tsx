@@ -87,21 +87,18 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
     }
   },[promotion])
 
-   useEffect(() => {
-    if (isSpinning) {
-      setTimeout(() => {
-        setIsSpinning(false);
-        setSpinRoulette(false)
-      }, 10000);
-    }
-  }, [isSpinning]);
-
+  
   function onIsDone(value: boolean){
     setIsDone(value)
   }
 
+  function onClearRoulette(){
+    setIsSpinning(false)
+    setSpinRoulette(false)
+  }
+
   return(
-    <RouletteContext.Provider value={{promotions, colors, playRoulette, promotion, degreeToFall, isSpinning, isDone, onIsDone}}>
+    <RouletteContext.Provider value={{promotions, colors, playRoulette, promotion, degreeToFall, isSpinning, isDone, onIsDone, onClearRoulette}}>
       {
         children
       }
