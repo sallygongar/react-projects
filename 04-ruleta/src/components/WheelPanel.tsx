@@ -1,5 +1,5 @@
 import Wheel from "./Wheel";
-import InfoPanel from "./Panel";
+import Panel from "./Panel";
 
 
 const WheelPanel = () => {
@@ -7,7 +7,7 @@ const WheelPanel = () => {
   return(
     <div className="ruleta">
       <Wheel />
-      <InfoPanel/>
+      <Panel/>
     </div>
   )
 }

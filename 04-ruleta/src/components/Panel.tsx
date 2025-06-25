@@ -1,6 +1,6 @@
 import PanelPlay from "./PanelPlay";
 
-const InfoPanel = () => {
+const Panel = () => {
   
 
 
@@ -11,4 +11,4 @@ const InfoPanel = () => {
   )
 }
 
-export default InfoPanel;
+export default Panel;
