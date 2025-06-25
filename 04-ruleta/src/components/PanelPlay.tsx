@@ -3,7 +3,7 @@ import { useUser } from "../context/User/userHook";
 import { useForm } from "../context/Form/formHook";
 import CustomCheckbox from "./CustomCheckbox";
 
-const PanelToPlay = () =>{
+const PanelPlay = () =>{
   const { playRoulette,  isSpinning } = useRoulette();
   const { acceptedTerm, onChangeTyC} = useUser();
   const { onInputChange, inputs, onValidateForm, errors } = useForm();
@@ -32,4 +32,4 @@ const PanelToPlay = () =>{
     )
 }
 
-export default PanelToPlay
+export default PanelPlay

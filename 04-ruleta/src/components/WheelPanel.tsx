@@ -1,8 +1,8 @@
 import Wheel from "./Wheel";
-import InfoPanel from "./InfoPanel";
+import InfoPanel from "./Panel";
 
 
-const Roulette = () => {
+const WheelPanel = () => {
   
   return(
     <div className="ruleta">
@@ -12,4 +12,4 @@ const Roulette = () => {
   )
 }
 
-export default Roulette;
+export default WheelPanel;

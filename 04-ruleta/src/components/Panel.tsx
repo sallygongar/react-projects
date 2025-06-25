@@ -1,4 +1,4 @@
-import PanelToPlay from "./PanelToPlay";
+import PanelPlay from "./PanelPlay";
 
 const InfoPanel = () => {
   
@@ -6,7 +6,7 @@ const InfoPanel = () => {
 
   return(
     <div className="ruleta_right_wrapper">
-      <PanelToPlay/>
+      <PanelPlay/>
     </div>
   )
 }
