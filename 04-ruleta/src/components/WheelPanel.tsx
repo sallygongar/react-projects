@@ -1,4 +1,4 @@
-import Wheel from "./Wheel";
+import Wheel from "./wheel/Wheel";
 import Panel from "./Panel";
 
 

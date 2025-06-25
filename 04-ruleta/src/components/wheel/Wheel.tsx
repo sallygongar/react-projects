@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import type { Canvas, CanvasContext } from "../types/wheel";
-import ping from '../assets/images/ping.png';
+import type { Canvas, CanvasContext } from "../../types/wheel";
+import ping from '../../assets/images/ping.png';
 import { isMobile } from 'react-device-detect';
-import { useRoulette } from "../context/roulette/rouletteHook";
+import { useRoulette } from "../../context/roulette/rouletteHook";
 
 const Wheel = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);

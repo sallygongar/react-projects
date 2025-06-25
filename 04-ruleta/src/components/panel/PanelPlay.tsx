@@ -1,7 +1,7 @@
-import { useRoulette } from "../context/roulette/rouletteHook";
-import { useUser } from "../context/User/userHook";
-import { useForm } from "../context/Form/formHook";
-import CustomCheckbox from "./CustomCheckbox";
+import { useRoulette } from "../../context/roulette/rouletteHook";
+import { useUser } from "../../context/User/userHook";
+import { useForm } from "../../context/Form/formHook";
+import CustomCheckbox from "../CustomCheckbox";
 
 const PanelPlay = () =>{
   const { playRoulette,  isSpinning } = useRoulette();
