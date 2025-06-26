@@ -14,15 +14,17 @@ export const UserProvider = ({ children } : { children: ReactNode}) => {
 
   const onChangePrize = (values: Prize) => {
     setPrize(values);
+    localStorage.setItem('prizeRoulette', JSON.stringify(values));
   }
 
   useEffect(() =>{
-    if(prize){
-      console.log("Este es el valor de prizze:", prize)
+    let prizeRoulette = localStorage?.getItem('prizeRoulette');
+    if(prizeRoulette){
+      setPrize(JSON.parse(prizeRoulette))
     }
-  },[prize])
+  },[])
 
-   function onClearUser(){
+  function onClearUser(){
     setAcceptedTerm(false)
   }
    

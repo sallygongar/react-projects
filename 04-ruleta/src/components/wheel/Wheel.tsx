@@ -9,7 +9,7 @@ import { useForm } from "../../context/Form/formHook";
 const Wheel = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const { promotions, colors, degreeToFall, isSpinning, onIsDone, promotion, isDone, onClearRoulette } = useRoulette();
-  const { onChangePrize} = useUser();
+  const { onChangePrize, onClearUser } = useUser();
   const { onClearForm } = useForm();
 
   const drawWheel = (
@@ -134,7 +134,6 @@ const Wheel = () => {
 
   useEffect(() =>{
     if(isDone){
-      console.log("Promotions:", promotion)
       let prize = {
         description: promotion?.description,
         code: promotion?.code,
@@ -144,8 +143,8 @@ const Wheel = () => {
       onChangePrize?.(prize)
       onClearRoulette?.()
       onClearForm?.()
-      /*onClearUser?.()
-       */
+      onClearUser?.()
+      
     }
   },[promotion, isDone])
 
