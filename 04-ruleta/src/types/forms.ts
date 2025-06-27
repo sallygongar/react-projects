@@ -5,5 +5,4 @@ export interface FormInputs{
 export interface FormErrors {
   emailError?: string
   terminosError?: string
-  
 }

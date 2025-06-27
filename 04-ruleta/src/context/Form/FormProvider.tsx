@@ -7,6 +7,7 @@ export const FormProvider = ({ children } : { children: ReactNode}) => {
     email: ""
   });
   const [errors, setErrors] = useState<FormErrors>({});
+  const [acceptedTerm, setAcceptedTerm] = useState<boolean>(false)
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -36,14 +37,19 @@ export const FormProvider = ({ children } : { children: ReactNode}) => {
     return isValid;
   }
 
+  const onChangeTyC = (term: boolean) => {
+    setAcceptedTerm(term)
+  }
+
   const onClearForm = () => {
     setErrors({})
     setInputs({email: ""})
+    setAcceptedTerm(false)
   }
 
   
 return(
-  <FormContext.Provider value={{inputs, onInputChange, onValidateForm, errors, onClearForm}}>
+  <FormContext.Provider value={{inputs, acceptedTerm, onInputChange, onValidateForm, errors, onClearForm, onChangeTyC}}>
     {
       children
     }

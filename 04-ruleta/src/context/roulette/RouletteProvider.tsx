@@ -1,19 +1,37 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import RouletteContext from './RouletteContext';
-import type { IPromotion } from '../../types/wheel';
+import type { Promotion } from '../../types/wheel';
 import promotionsList from '../../db/promotions.json'
 
 
 export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
-  const [promotions,setPromotions] = useState<IPromotion[]>([]);
-  const [colors,setColors] = useState<string[]>([]);
-  const [promotion,setPromotion] = useState<IPromotion | null | undefined>(null)
+  const [promotions,setPromotions] = useState<Promotion[]>([]);
+  const [colors, setColors] = useState<string[]>([]);
+  const [promotion,setPromotion] = useState<Promotion | null>(null)
   const [spinRoulette, setSpinRoulette] = useState(false);
   const [degreeToFall, setDegreeToFall] = useState<number>(0);
   const [isSpinning, setIsSpinning] = useState<boolean>(false);
   const [lastRotation, setLastRotation] = useState(0);
   const [lastPrizeAngule, setLastPrizeAngule] = useState(0);
   const [isDone, setIsDone] = useState<boolean>(false)
+/*   
+    const [prize, setPrize] = useState<Prize | null>(
+      null
+     );
+
+   
+  
+    const onChangePrize = (values: Prize) => {
+      setPrize(values);
+      //localStorage.setItem('prizeRoulette', JSON.stringify(values));
+    }
+   */
+    /* useEffect(() =>{
+      let prizeRoulette = localStorage?.getItem('prizeRoulette');
+      if(prizeRoulette){
+        //setUser(JSON.parse(prizeRoulette))
+      }
+    },[]) */
   
   useEffect(()=>{
     setColors(['#fff', '#DB061C'])
@@ -21,7 +39,7 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
 
  
   useEffect(() => { 
-    const promotionsBase: IPromotion[] = promotionsList;
+    const promotionsBase: Promotion[] = promotionsList;
 
     for(let i = 0; i < promotionsBase.length; i++ ){
       const range = (1 * promotionsBase[i].probability) / 100
@@ -51,7 +69,7 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
     
     const randomNumber: number = Math.round(Math.random() * 100) / 100; 
     let acumulado: number = 0;
-    let promotion: IPromotion | null = null;
+    let promotion: Promotion | null = null;
     for (let i = 0; i < promotions.length; i++) {
       acumulado += promotions[i].range ?? 0;
       if (randomNumber <= acumulado) {
@@ -98,7 +116,7 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
   }
 
   return(
-    <RouletteContext.Provider value={{promotions, colors, playRoulette, promotion, degreeToFall, isSpinning, isDone, onIsDone, onClearRoulette}}>
+    <RouletteContext.Provider value={{promotions, colors, playRoulette, degreeToFall, isSpinning, isDone, onIsDone, onClearRoulette}}>
       {
         children
       }

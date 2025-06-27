@@ -1,8 +1,4 @@
-import type { ChangeEvent } from "react"
-import type { Prize } from "./user"
-import type { FormInputs } from "./forms"
-
-export interface IPromotion {
+export interface Promotion {
   description: string
   code: string
   probability: number
@@ -13,24 +9,16 @@ export interface IPromotion {
 }
 
 export interface WheelProps  {
-  promotions: IPromotion[]
+  promotions: Promotion[]
   colors: string[]
-  promotion?: IPromotion | null
-  isDone?: boolean
 }
 
-export interface IActions{
-  playRoulette?: () => void
-  isSpinning?: boolean
-  degreeToFall?: number
-  onChangeTyC?: (value: boolean) => void
-  onInputChange?: (e: ChangeEvent<HTMLInputElement>) => void
-  onChangePrize?: (values: Prize) => void
-  onValidateForm?: (values: FormInputs, acceptedTerm: boolean) => boolean
-  onIsDone?: (value: boolean) => void
-  onClearUser?: () => void
-  onClearRoulette?: () => void
-  onClearForm?: () => void
+export interface Prize {
+  email?: string
+  description?: string
+  code?: string
+  isWin?: boolean
+  termsConditions?: string
 }
 
 export type Canvas = HTMLCanvasElement | null;
