@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import RouletteContext from './RouletteContext';
-import type { Promotion } from '../../types/wheel';
+import type { Prize, Promotion } from '../../types/wheel';
 import promotionsList from '../../db/promotions.json'
 
 
@@ -14,24 +14,19 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
   const [lastRotation, setLastRotation] = useState(0);
   const [lastPrizeAngule, setLastPrizeAngule] = useState(0);
   const [isDone, setIsDone] = useState<boolean>(false)
-/*   
-    const [prize, setPrize] = useState<Prize | null>(
-      null
-     );
+  const [prize, setPrize] = useState<Prize | null>(null);
 
+  const onChangePrize = (values: Prize) => {
+    setPrize(values);
+    localStorage.setItem('prizeRoulette', JSON.stringify(values));
+  }
    
-  
-    const onChangePrize = (values: Prize) => {
-      setPrize(values);
-      //localStorage.setItem('prizeRoulette', JSON.stringify(values));
+  useEffect(() =>{
+   let prizeRoulette = localStorage?.getItem('prizeRoulette');
+    if(prizeRoulette){
+      setPrize(JSON.parse(prizeRoulette))
     }
-   */
-    /* useEffect(() =>{
-      let prizeRoulette = localStorage?.getItem('prizeRoulette');
-      if(prizeRoulette){
-        //setUser(JSON.parse(prizeRoulette))
-      }
-    },[]) */
+  },[])
   
   useEffect(()=>{
     setColors(['#fff', '#DB061C'])
@@ -116,7 +111,7 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
   }
 
   return(
-    <RouletteContext.Provider value={{promotions, colors, playRoulette, degreeToFall, isSpinning, isDone, onIsDone, onClearRoulette}}>
+    <RouletteContext.Provider value={{promotions, colors, prize, promotion, playRoulette, degreeToFall, isSpinning, isDone, onIsDone, onClearRoulette, onChangePrize}}>
       {
         children
       }
