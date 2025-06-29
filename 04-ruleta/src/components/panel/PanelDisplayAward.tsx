@@ -1,23 +1,52 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRoulette } from "../../context/roulette/rouletteHook";
 
-//import { Copy } from '@/assets/images/Copy'
+import copy from '@assets/images/Copy.png'
 
 const PanelDisplayAward = () => {
   const { prize } = useRoulette();
   const [isCopied, setIsCopied] = useState(false);
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const [clicked, setClicked] = useState(false);
 
   const copyToClipboard = async () => {
     try {
       if(prize?.code){
         await navigator.clipboard.writeText(prize?.code);
         setIsCopied(true);
-        setTimeout(() => setIsCopied(false), 2000); // Mensaje por 2 segundos
+        setClicked(true)
+        setTimeout(() => {
+          setIsCopied(false) 
+          setClicked(false)}, 
+        2000); // Mensaje por 2 segundos
       }
     } catch (err) {
       console.error("Error al copiar:", err);
     }
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
+        setIsCopied(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+   const handleMouseEnter = () => {
+    setIsCopied(true);
+  };
+
+  const handleMouseLeave = () => {
+    // Solo ocultamos si no fue por clic
+   setIsCopied(false);
+  };
+
 
 
   return(
@@ -37,12 +66,16 @@ const PanelDisplayAward = () => {
        }
         <div className="ruleta_form_group">
           <p>Usa el siguiente cupón</p>
-          <div className="ruleta_form_coupon">
-           <p> { prize?.code }</p>
-          
-           <button onClick={copyToClipboard} >
-              {isCopied ? "¡Copiado!" : "Copiar Cupón"}
+          <div className="ruleta_form_coupon" ref={buttonRef}>
+           <p className="ruleta_code"> { prize?.code }</p>
+           <button  className="ruleta_button_copy" 
+              onClick={copyToClipboard} 
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+           style={{backgroundColor: "transparent"}} >
+              <img src={copy} alt="Logo" />
             </button>
+          { isCopied && <span className="ruleta_tooltip">{clicked ? '¡Copiado!' : '¡Copiar!'}</span>}
           </div>
         
         </div>
