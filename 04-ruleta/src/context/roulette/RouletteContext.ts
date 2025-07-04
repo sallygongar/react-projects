@@ -8,6 +8,7 @@ interface RouletteContextProps extends WheelProps, IActions {
   isDone?: boolean
   promotion?: Promotion | null
   prize?: Prize | null
+  sessionPrize?: Prize |null
 }
 
 const RouletteContext = createContext<RouletteContextProps | null>(null);

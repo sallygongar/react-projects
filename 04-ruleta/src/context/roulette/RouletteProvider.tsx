@@ -15,6 +15,7 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
   const [lastPrizeAngule, setLastPrizeAngule] = useState(0);
   const [isDone, setIsDone] = useState<boolean>(false)
   const [prize, setPrize] = useState<Prize | null>(null);
+  const [sessionPrize, setSessionPrize] = useState<Prize | null>(null)
 
   const onChangePrize = (values: Prize) => {
     setPrize(values);
@@ -25,6 +26,7 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
    let prizeRoulette = localStorage?.getItem('prizeRoulette');
     if(prizeRoulette){
       setPrize(JSON.parse(prizeRoulette))
+      setSessionPrize(JSON.parse(prizeRoulette))
     }
   },[])
   
@@ -111,7 +113,7 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
   }
 
   return(
-    <RouletteContext.Provider value={{promotions, colors, prize, promotion, playRoulette, degreeToFall, isSpinning, isDone, onIsDone, onClearRoulette, onChangePrize}}>
+    <RouletteContext.Provider value={{promotions, colors, prize, promotion, sessionPrize, playRoulette, degreeToFall, isSpinning, isDone, onIsDone, onClearRoulette, onChangePrize}}>
       {
         children
       }

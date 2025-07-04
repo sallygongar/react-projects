@@ -7,7 +7,7 @@ import { useForm } from "../../context/Form/formHook";
 
 const Wheel = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const { promotions, colors, promotion, degreeToFall, isSpinning, onIsDone, isDone, onChangePrize, onClearRoulette } = useRoulette();
+  const { promotions, colors, promotion, degreeToFall, sessionPrize, isSpinning, onIsDone, isDone, onChangePrize, onClearRoulette } = useRoulette();
   const { inputs, onClearForm } = useForm();
 
   const drawWheel = (
@@ -143,6 +143,12 @@ const Wheel = () => {
       onClearForm?.()
     }
   },[isDone])
+
+  useEffect(()=>{
+    if(sessionPrize){
+      console.log("Información del premio ensesion:", sessionPrize)
+    }
+  }, [sessionPrize])
 
 
   return(
