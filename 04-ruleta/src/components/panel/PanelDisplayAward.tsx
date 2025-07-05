@@ -81,7 +81,7 @@ const PanelDisplayAward = () => {
             <span className="prize_name-1">{message?.[1]}</span>
             <span className="prize_name-2">{message?.[2]}</span>
           </div>
-          <p>Tu cupon de ahorro es</p>
+          <p>Tu cupon de ahorro es:</p>
           <div className="ruleta_panel_action" ref={buttonRef}>
            <p className="ruleta_code"> { prize?.code }</p>
            <button  className="ruleta_button_copy" 
