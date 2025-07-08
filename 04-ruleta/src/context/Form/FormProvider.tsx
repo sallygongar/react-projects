@@ -19,20 +19,22 @@ export const FormProvider = ({ children } : { children: ReactNode}) => {
     const correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let isValid = true;
     let errorsNews: FormErrors = {}
-
+    
     if(values.email){
       if(!correoRegex.test(values.email)){
         errorsNews['emailError'] = "No es un correo valido";
-        isValid = false;
-      }
-      if(!acceptedTerm){
-        errorsNews['terminosError'] = "Debe aceptar terminos y condiciones.";
         isValid = false;
       }
     }else{
       errorsNews['emailError'] = "No es un correo valido";
       isValid = false;
     }
+
+    if(!acceptedTerm){
+      errorsNews['terminosError'] = "Debe aceptar terminos y condiciones.";
+      isValid = false;
+    }
+
     setErrors(errorsNews);
     return isValid;
   }

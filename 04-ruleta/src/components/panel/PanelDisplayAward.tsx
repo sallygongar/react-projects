@@ -93,7 +93,9 @@ const PanelDisplayAward = () => {
             </button>
           { isCopied && <span className="ruleta_tooltip">{clicked ? '¡Copiado!' : '¡Copiar!'}</span>}
           </div>
-        
+        </div>
+        <div className="ruleta_panel_footer">
+           <a className="ruleta_footer_link" href="/">Ver Productos</a>
         </div>
       </div> 
     </div>

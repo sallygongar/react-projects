@@ -61,6 +61,73 @@
       @media (max-width: 768px) {
         width: 100%;
       }
+      .ruleta_panel_play{
+        width: 50%;
+        gap: 3px;
+        display: flex;
+        flex-direction: column;
+        @media (max-width: 768px) {
+          width: 100%;
+        }
+        h3{
+           @media (max-width: 768px) {
+            text-align: center;
+          }
+          
+        }
+        p{
+          @media (max-width: 768px) {
+            text-align: center;
+          }
+        }
+        .ruleta_panel_tyc{
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          @media (max-width: 768px) {
+            align-items: center;
+          }
+            input{
+              width: 350px;
+              height: 35px;
+              border-radius: 5px;
+              border: 1px solid #ccc;
+              padding: 0 5px;
+              font-size: 16px;
+              font-family: "Montserrat", sans-serif;
+              @media (max-width: 768px) {
+                width: 100%;
+              }
+                &:focus{
+                border: 1px solid #111;
+              }
+              &::placeholder{
+                font-family: "Montserrat", sans-serif;
+                font-size: 16px;
+                @media (max-width: 768px) {
+                  font-size: 14px;
+                }
+              }
+          }
+          .ruleta_panel_errors{
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            background-color: #DD5B68;
+            border-radius: 5px;
+            width: 100%;
+            @media (max-width: 768px) {
+             
+              text-align: center;
+            }
+            .ruleta_form_error{
+              font-size: 14px;
+              color: #fff;
+              font-weight: 400;
+            }
+          }
+        }
+      }
       .ruleta_panel_wrapper{
         display: flex;
         flex-direction: column;
@@ -111,7 +178,7 @@
           padding: 20px;
           align-items: center;
           border-radius: 10px;
-          width: 300px;
+          width: 275px;
           @media (max-width: 768px) {
             justify-content: center;
             align-items: center;
@@ -215,6 +282,21 @@
           }
           .ruleta_button_copy{
             cursor: pointer;
+          }
+        }
+        .ruleta_panel_footer{
+          margin-top: 10px;
+          .ruleta_footer_link{
+            display: flex;
+            background-color: #DB061C;
+            color: #fff;
+            height: 45px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
           }
         }
       }

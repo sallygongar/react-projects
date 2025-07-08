@@ -7,7 +7,7 @@ import { useForm } from "../../context/Form/formHook";
 
 const Wheel = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const { promotions, colors, promotion, degreeToFall, sessionPrize, isSpinning, onIsDone, isDone, onChangePrize, onClearRoulette } = useRoulette();
+  const { promotions, colors, promotion, degreeToFall, isSpinning, onIsDone, isDone, onChangePrize, onClearRoulette } = useRoulette();
   const { inputs, onClearForm } = useForm();
 
   const drawWheel = (
@@ -111,7 +111,7 @@ const Wheel = () => {
       const numberSegments = promotions.length;
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
-      const radio = isMobile ?  170 : 180;
+      const radio = isMobile ?  160 : 170;
 
       if(promotions.length > 0){
         for(let i = 0; i < promotions.length; i++){
@@ -144,18 +144,12 @@ const Wheel = () => {
     }
   },[isDone])
 
-  useEffect(()=>{
-    if(sessionPrize){
-      console.log("Información del premio ensesion:", sessionPrize)
-    }
-  }, [sessionPrize])
-
-
+  
   return(
     <div className="ruleta_left_wrapper">
       <div className="ruleta_circle"></div>
       <div className={`ruleta_ping ${ isSpinning ? 'ruleta_animated_ping' : ''}`}><img src={ping} alt="ping" width="100%"/></div>
-      <canvas ref={canvasRef} width={isMobile ? 375: 400} height={isMobile ? 375 : 400}></canvas>
+      <canvas ref={canvasRef} width={375} height={375}></canvas>
     </div>
   )
 }
