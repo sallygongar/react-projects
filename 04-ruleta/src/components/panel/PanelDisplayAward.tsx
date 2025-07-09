@@ -13,9 +13,7 @@ const PanelDisplayAward = () => {
   const [clicked, setClicked] = useState(false);
 
   const message = prize && prize.description?.replace(/\*/g, "")?.split('\n')
-  console.log("Prize:", prize?.description)
-  console.log("Mensaje:", message)
-
+  
   const copyToClipboard = async () => {
     try {
       if(prize?.code){
@@ -69,7 +67,7 @@ const PanelDisplayAward = () => {
         </>
         :
         <>
-          <div>
+          <div className="ruleta_panel_header">
             <h3>¡Esta vez no fue posible!</h3>
             <img src={gifnowin} alt="Sigue Participando"/>
           </div>

@@ -13,11 +13,9 @@ const PanelPlay = () =>{
     }
   }
 
-  console.log("Errors:", errors)
-
     return(
       <div className="ruleta_panel">
-        <div className="ruleta_panel_play">
+        <div className="ruleta_panel_wrapper_play">
           <h3>¡Gira y encuentra tu ahorro!</h3>
           <p>Juega nuestra ruleta de descuentos y descubre cuanto puedes ahorrar en tus compras</p>
           <div className="ruleta_panel_tyc">
