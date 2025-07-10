@@ -6,10 +6,10 @@
     "isWin": true
   },
   {
-    "description": "*15%*\nen\n*sopas*",
-    "code": "15SOPAS",
+    "description": "*Sigue*\nParticipando",
+    "code": "NOGANASTE",
     "probability": 20,
-    "isWin": true
+    "isWin": false
   },
   {
     "description": "*5%*\nen Linea\n*Blanca*",
@@ -30,10 +30,10 @@
     "isWin": true
   },
   {
-    "description": "*10%*\nen Refrescos",
-    "code": "10EREFRSC",
+    "description": "*Sigue*\nParticipando",
+    "code": "NOGANASTE",
     "probability": 10,
-    "isWin": true
+    "isWin": false
   },
   {
     "description": "*2 x 1*\nen suerox",

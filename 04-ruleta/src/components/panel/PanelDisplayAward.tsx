@@ -56,43 +56,37 @@ const PanelDisplayAward = () => {
 
   return(
     <div className="ruleta_panel">
-      <div className="ruleta_panel_wrapper">
-       {
-        prize?.isWin ?
-        <>
-          <div className="ruleta_panel_header">
-             <h3>¡Felicidades!</h3>
-             <img src={gifwin} alt="Felicidades"/>
-          </div>
-        </>
-        :
-        <>
-          <div className="ruleta_panel_header">
-            <h3>¡Esta vez no fue posible!</h3>
-            <img src={gifnowin} alt="Sigue Participando"/>
-          </div>
-        </>
-       }
-        <div className="ruleta_panel_body">
-          <div className="ruleta_panel_body-prize">
-            <span className="prize_percentaje">{message?.[0]}</span>
-            <span className="prize_name-1">{message?.[1]}</span>
-            <span className="prize_name-2">{message?.[2]}</span>
-          </div>
-          <p>Tu cupon de ahorro es:</p>
-          <div className="ruleta_panel_action" ref={buttonRef}>
-           <p className="ruleta_code"> { prize?.code }</p>
-           <button  className="ruleta_button_copy" 
-              onClick={copyToClipboard} 
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-           style={{backgroundColor: "transparent"}} >
-              <img src={copy} alt="Logo" />
-            </button>
-          { isCopied && <span className="ruleta_tooltip">{clicked ? '¡Copiado!' : '¡Copiar!'}</span>}
-          </div>
+      <div className={`ruleta_panel_wrapper ${!prize?.isWin && 'wrapper_notwinner'}`} >
+        <div className="ruleta_panel_header">
+          { prize?.isWin ? <h3>¡Felicidades!</h3> :  <h3>¡Esta vez no fue posible!</h3>}
+          { prize?.isWin ? <img src={gifwin} alt="Felicidades"/> :  <img src={gifnowin} alt="Sigue Participando"/>}
         </div>
-        <div className="ruleta_panel_footer">
+        { prize?.isWin ?
+          <div className="ruleta_panel_body">
+            <div className="ruleta_panel_body-prize">
+              <span className="prize_percentaje">{message?.[0]}</span>
+              <span className="prize_name-1">{message?.[1]}</span>
+              <span className="prize_name-2">{message?.[2]}</span>
+            </div>
+            <p>Tu cupon de ahorro es:</p>
+            <div className="ruleta_panel_action" ref={buttonRef}>
+            <p className="ruleta_code"> { prize?.code }</p>
+            <button  className="ruleta_button_copy" 
+                onClick={copyToClipboard} 
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+            style={{backgroundColor: "transparent"}} >
+                <img src={copy} alt="Logo" />
+              </button>
+            { isCopied && <span className="ruleta_tooltip">{clicked ? '¡Copiado!' : '¡Copiar!'}</span>}
+            </div>
+          </div>
+          :
+          <div className="ruleta_panel_body ruleta_panel_body-not-winner">
+            <p>Pero todavia te esperan muchas ofertas</p>
+          </div>
+        }
+        <div className={`ruleta_panel_footer ${!prize?.isWin && 'footer_notwinner'}`}>
            <a className="ruleta_footer_link" href="/">Ver Productos</a>
         </div>
       </div> 

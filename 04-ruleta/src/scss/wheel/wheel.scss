@@ -265,6 +265,15 @@
             cursor: pointer;
           }
         }
+        .ruleta_panel_body-not-winner{
+          box-shadow: none;
+          width: 100%;
+          padding: 8px 0;
+          align-items: flex-start;
+          @media (max-width: 768px) {
+            align-items: center;
+          }
+        }
         .ruleta_panel_footer{
           margin-top: 10px;
           .ruleta_footer_link{
@@ -279,6 +288,9 @@
             font-size: 16px;
             font-weight: 600;
           }
+        }
+        .footer_notwinner{
+          margin-top: 5px;
         }
       }
       .ruleta_play{
@@ -301,6 +313,9 @@
           cursor: auto;
         }
       }
+    }
+    .wrapper_notwinner{
+      gap: 0 !important;
     }
   }
 }

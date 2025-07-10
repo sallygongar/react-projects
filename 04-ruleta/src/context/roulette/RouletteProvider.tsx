@@ -76,12 +76,12 @@ export const RouletteProvider = ({ children }:{ children: ReactNode}) => {
     }
 
     if(promotion){
-      if(promotion.isWin){
+      //if(promotion.isWin){
         setTimeout(() => {
           setPromotion(promotion)
           setSpinRoulette(true)
         },1000)
-      }
+      //}
     }
   }
 
