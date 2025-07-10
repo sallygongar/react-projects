@@ -1,16 +1,24 @@
 import { useRoulette } from "../../context/roulette/rouletteHook";
 import { useForm } from "../../context/Form/formHook";
 import CustomCheckbox from "../CustomCheckbox";
+import { useState } from "react";
+import iconwarning from '@assets/images/coolicon.svg'
 
 const PanelPlay = () =>{
   const { playRoulette,  isSpinning } = useRoulette();
   const { acceptedTerm, onChangeTyC} = useForm();
   const { onInputChange, inputs, onValidateForm, errors } = useForm();
-
+  const [hiddenError, setHiddenError] = useState<boolean>(false);
   const validateInformation = () => {
     if(onValidateForm?.(inputs, acceptedTerm ?? false)){
       playRoulette?.()
     }
+  }
+
+  const handleCloseError = () => {
+    setTimeout(() =>{
+      setHiddenError(true)
+    },1000)
   }
 
     return(
@@ -23,7 +31,8 @@ const PanelPlay = () =>{
             <CustomCheckbox label="Acepto los terminos y condiciones" checked={acceptedTerm ?? false} onChange={onChangeTyC}/>
             { 
               (errors?.terminosError ||  errors?.emailError) && 
-              <div className="ruleta_panel_errors">
+              <div className={`ruleta_panel_errors ${hiddenError && 'ruleta_hidden_error'}`} onClick={handleCloseError}>
+                <span className="ruleta_errors_closed"><img src={iconwarning} alt="Advertencia"/></span>
                 <span className="ruleta_form_error">{errors?.terminosError}</span>
                 <span className="ruleta_form_error">{errors?.emailError}</span>
               </div>
