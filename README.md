@@ -10,6 +10,12 @@ Este repositorio contiene aplicaciónes funcionales en React
 - CSS
 - Vite
 
+## ⭐ Aplicación insignia
+
+- RULETA
+
+![Screenshot](/04-ruleta/src/assets/images/ruletaWin.gif)
+
 ## 🚀 Lista de aplicaciones
 
 - Card de perfil
@@ -23,3 +29,7 @@ Este repositorio contiene aplicaciónes funcionales en React
 - Control de mascotas
 
 ![Screenshot](/control-mascotas/src/assets/images/SAVE.gif)
+
+- RULETA
+
+![Screenshot](/04-ruleta/src/assets/images/ruletaWin.gif)
