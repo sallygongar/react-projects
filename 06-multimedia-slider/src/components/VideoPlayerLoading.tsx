@@ -34,7 +34,7 @@ const VideoPlayerLoading: React.FC<VideoPlayerProps> = ({ url }) => {
   const [state, setState] = useState<PlayerState>(initialState);
 
   const handleToogle = () => {
-    setState((prevState) => ({ ...prevState, playing: !prevState.playing }));
+    setState((prev) => ({ ...prev, playing: !prev.playing }));
   };
 
   const handleProgress = () => {
@@ -80,9 +80,12 @@ const VideoPlayerLoading: React.FC<VideoPlayerProps> = ({ url }) => {
   const { duration, played, playing } = state;
 
   const progressPercent = Math.round(played * 100);
-
+  const radius = 35;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - played * circumference;
+  console.log(progressPercent);
   return (
-    <div className="video-wrapper">
+    <div>
       <ReactPlayer
         ref={setPlayerRef}
         playing={playing}
@@ -96,15 +99,27 @@ const VideoPlayerLoading: React.FC<VideoPlayerProps> = ({ url }) => {
       />
 
       <Duration seconds={duration * (1 - played)} />
-      <button
-        className="play-pause-button"
-        onClick={handleToogle}
-        style={{
-          background: `conic-gradient(#00bcd4) ${progressPercent}%, #ddd ${progressPercent}% 100%`,
-        }}
-      >
-        <div className="button-icon">{playing ? "parar" : "seguir"}</div>
-      </button>
+
+      <div className="progress-container">
+        <svg width="120" height="120" className="progress-ring">
+          <circle
+            className="progress-ring__circle"
+            stroke="red"
+            strokeWidth="4"
+            fill="transparent"
+            r={radius}
+            cx="60"
+            cy="60"
+            style={{
+              strokeDasharray: circumference,
+              strokeDashoffset: offset,
+            }}
+          />
+        </svg>
+        <button className="play-pause-button" onClick={handleToogle}>
+          <div className="button-icon">{playing ? "⏸️" : "▶️"}</div>
+        </button>
+      </div>
     </div>
   );
 };

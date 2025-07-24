@@ -1,39 +1,37 @@
-.video-wrapper {
+.progress-container {
   position: relative;
-  width: 640px;
-  height: 360px;
-  overflow: hidden;
+  width: 150px;
+  height: 150px;
+  z-index: 1000;
+}
+
+button:focus {
+  border: none !important;
+}
+
+.progress-container .progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .play-pause-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50% -50%);
-  width: 80px;
-  height: 80px;
   border-radius: 50%;
   border: none;
+  color: #000;
+  position: absolute;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  transition: background 0.3s ease;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  transform: translate(-50% -50%, -50%);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background: transparent;
 }
 
-.button-icon {
-  background-color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  font-size: 26px;
-  font-weight: bold;
-  color: #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
+.play-pause-button:focus {
+  border: transparent;
+  background-color: transparent;
 }
