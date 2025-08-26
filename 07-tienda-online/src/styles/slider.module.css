@@ -1,0 +1,23 @@
+.swipperCustom {
+  height: 60px;
+  background-color: #000;
+  color: #fff;
+}
+
+.swipperCustom :global(.swiper-wrapper) :global(.swiper-slide) {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  line-height: 20px;
+  font-family: "Montserrat";
+  font-weight: 500;
+}
+
+.swipperCustom :global(.swiper-button-prev::after),
+.swipperCustom :global(.swiper-button-next::after) {
+  font-size: 25px;
+  color: #fff;
+  font-weight: 600;
+}
