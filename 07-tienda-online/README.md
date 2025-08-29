@@ -45,11 +45,9 @@ npm run dev
 
 ### 📌 Notas adicionales
 
-El estado global se maneja con Redux Toolkit.
-
-El diseño es modular y escalable, utilizando estilos con Sass.
-
-Este proyecto puede servir como base para un e-commerce real en el futuro.
+- El estado global se maneja con Redux Toolkit.
+- El diseño es modular y escalable, utilizando estilos con Sass.
+- Este proyecto puede servir como base para un e-commerce real en el futuro.
 
 ### 📝 Licencia
 
