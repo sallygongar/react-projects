@@ -7,9 +7,7 @@ import messages from "../data/sliderMesagges";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import styles from "../styles/slider.module.css";
-
-console.log("Lista de mensajes:", messages);
+import styles from "../scss/layouts/slider.module.scss";
 
 export default function SliderSwipper() {
   return (

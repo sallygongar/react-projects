@@ -1,0 +1,36 @@
+html {
+  scroll-behavior: smooth; // Desplazamiento suave al hacer scroll
+  -webkit-text-size-adjust: 100%; // Evita que Safari/Chrome ajusten el tamaño del texto automáticamente
+}
+
+body {
+  font-family: var(--font-monserrat);
+  font-size: var(--font-size16);
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a class */
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
