@@ -4,13 +4,20 @@ import SliderSwipper from "./SliderSwipper";
 function Header() {
   return (
     <header>
-      <h1>Mi Tienda</h1>
       <SliderSwipper />
-      <nav>
-        <Link to="/">Inicio</Link>
-        <Link to="/nike">Nike</Link>
-        <Link to="/mujer">Mujer</Link>
-        <Link to="/hombre">Hombre</Link>
+      <nav className="store-navbar-menu">
+        <Link to="/" className="store-navbar-link">
+          Inicio
+        </Link>
+        <Link to="/nike" className="store-navbar-link">
+          Nike
+        </Link>
+        <Link to="/mujer" className="store-navbar-link">
+          Mujer
+        </Link>
+        <Link to="/hombre" className="store-navbar-link">
+          Hombre
+        </Link>
       </nav>
     </header>
   );
