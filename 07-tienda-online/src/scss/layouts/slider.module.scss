@@ -13,6 +13,9 @@
   line-height: 20px;
   font-family: var(--font-monserrat);
   font-weight: 500;
+  @media (max-width: 768px) {
+    font-size: var(--font-size14);
+  }
 }
 
 .swipperCustom :global(.swiper-button-prev::after),

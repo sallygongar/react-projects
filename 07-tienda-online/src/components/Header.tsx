@@ -1,24 +1,36 @@
 import { Link } from "react-router-dom";
 import SliderSwipper from "./SliderSwipper";
+//import logo from "../assets/logo.jpg";
+import usuario from "../assets/usuario.png";
+import bolsa from "../assets/bolsaDeCompra.png";
 
 function Header() {
   return (
     <header>
       <SliderSwipper />
-      <nav className="store-navbar-menu">
-        <Link to="/" className="store-navbar-link">
-          Inicio
-        </Link>
-        <Link to="/nike" className="store-navbar-link">
-          Nike
-        </Link>
-        <Link to="/mujer" className="store-navbar-link">
-          Mujer
-        </Link>
-        <Link to="/hombre" className="store-navbar-link">
-          Hombre
-        </Link>
-      </nav>
+      <div className="store-topbar-container">
+        <div className="store-topbar__logo">
+          <h3>Tienda online</h3>
+        </div>
+        <nav className="store-navbar-menu">
+          <Link to="/" className="store-navbar-link">
+            Inicio
+          </Link>
+          <Link to="/nike" className="store-navbar-link">
+            Nike
+          </Link>
+          <Link to="/mujer" className="store-navbar-link">
+            Mujer
+          </Link>
+          <Link to="/hombre" className="store-navbar-link">
+            Hombre
+          </Link>
+        </nav>
+        <div className="store-topbar__user">
+          <img alt="user" src={usuario} />
+          <img alt="bolsa" src={bolsa} />
+        </div>
+      </div>
     </header>
   );
 }
