@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import SliderSwipper from "./SliderSwipper";
-//import logo from "../assets/logo.jpg";
-import usuario from "../assets/usuario.png";
-import bolsa from "../assets/bolsaDeCompra.png";
+import Minicart from "./MiniCart";
+import Login from "./Login";
 
 function Header() {
   return (
@@ -27,8 +26,8 @@ function Header() {
           </Link>
         </nav>
         <div className="store-topbar__user">
-          <img alt="user" src={usuario} />
-          <img alt="bolsa" src={bolsa} />
+          <Login />
+          <Minicart />
         </div>
       </div>
     </header>

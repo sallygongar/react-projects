@@ -3,7 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   gap: 10px;
-  .store-topbar__logo {
+  store-topbar__user .store-topbar__logo {
     padding: 0 20px 0 20px;
     h3 {
       @media (max-width: 768px) {
@@ -29,8 +29,6 @@
     }
   }
   .store-topbar__user {
-    /* justify-self: flex-end;
-    align-self: center; */
     display: flex;
     justify-content: flex-end;
     align-items: center;

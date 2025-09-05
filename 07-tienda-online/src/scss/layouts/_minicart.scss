@@ -1,0 +1,12 @@
+.minicart-wrapper {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  .minicart-product__count {
+    position: absolute;
+    right: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    top: 6px;
+  }
+}
